@@ -1,6 +1,6 @@
 {
   "name": "PdfCreator",
-  "app_id": "",
+  "app_id": "dd027223",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
