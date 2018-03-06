@@ -57,6 +57,11 @@ export class PdfPage {
   }
 
 
+  irPad(){
+    console.log("Dentro pad");
+    this.navCtrl.push(PadFirmaPage, {datosFormulario: this.datosFormulario, pdfObj: this.pdfObj});
+  }
+
   createPdf() {
   	
   	console.log(this.textoPdf.p1);
@@ -125,7 +130,7 @@ export class PdfPage {
     }
     this.pdfObj = pdfMake.createPdf(docDefinition);
     //this.openSignatureModel();
-    this.navCtrl.push(PadFirmaPage, {datosFormulario: this.datosFormulario, pdfObj: this.pdfObj});
+    //this.navCtrl.push(PadFirmaPage, {datosFormulario: this.datosFormulario, pdfObj: this.pdfObj});
   }
 
   downloadPdf() {

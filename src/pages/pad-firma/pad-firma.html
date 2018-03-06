@@ -18,11 +18,11 @@
 		<div class="title">Por favor, firme en el cuadro marcado</div>
 		<ion-grid>
 			<ion-row [ngClass]="{'drawing-active': isDrawing}">
-				<ion-col></ion-col>
-				<ion-col>
+				<ion-col col-4-md></ion-col>
+				<ion-col col-4-md>
 		  			<signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
 				</ion-col>
-				<ion-col></ion-col>
+				<ion-col col-4-md></ion-col>
 			</ion-row>
 			<ion-row>
 				<ion-col col-4>

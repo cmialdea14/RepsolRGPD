@@ -29,8 +29,8 @@ export class PadFirmaPage {
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
   private signaturePadOptions: Object = { // Check out https://github.com/szimek/signature_pad
     'minWidth': 2,
-    'canvasWidth': 340,
-    'canvasHeight': 200,
+    'width': '100%',
+    'height': 'auto',
     'backgroundColor': '#FFFFFF',
     'penColor': '#000000'
   };
