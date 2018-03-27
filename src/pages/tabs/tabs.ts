@@ -10,7 +10,9 @@ import { HomePage } from '../home/home';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+	segment:'repsol'
+})
 @Component({
   selector: 'page-tabs',
   templateUrl: 'tabs.html'

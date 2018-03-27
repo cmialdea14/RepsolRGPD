@@ -1,0 +1,22 @@
+{
+  "TituloNavBarInicio": "Inicio",
+  "TituloHome": "Proceso Aceptación LOPD",
+  "BotonComenzar": "Comenzar",
+  "BotonEs": "Español",
+  "BotonEn": "Inglés",
+  "TituloTab": "Inicio",
+  
+  "TituloNavBarForm":"Formulario",
+  "Nombre":"Nombre",
+  "Apellido1":"Primer Apellido",
+  "Apellido2":"Segundo Apellido",
+  "Email":"Email",
+  "BotonSiguiente":"Siguiente",
+  "Foto":"Foto",
+  "BotonFoto":"Tomar foto",
+  
+  "AlertTimeOutTitle":"Advertencia",
+  "AlertTimeOutSubtitle":"Lo sentimos, su tiempo ha finalizado, puede comenzar de nuevo si lo desea.",
+  "ToastFirmado":"Firmado correctamente",
+  "ToastErrorFoto": "Impossible to take the photo"
+}

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Inicio</ion-title>
+    <ion-title>{{ 'TituloNavBarInicio' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,11 +15,25 @@
 <ion-content padding>
 	<ion-list>
 		<ion-item>
-			<ion-title>Proceso Aceptación LOPD</ion-title>
+			<ion-title>{{ 'TituloHome' | translate }}</ion-title>
 		</ion-item>
-		<ion-item>
-			<button ion-button block (click)="irFormAcceso()">Comenzar</button>
-		</ion-item>
+
+		<ion-grid>
+			<ion-row>
+				<ion-col col-4></ion-col>
+				<ion-col col-2>
+					<button ion-button round block icon-right (click)="cambioIdioma('es')">{{ 'BotonEs' | translate }}<ion-icon name="flagcountry-es"></ion-icon></button>
+				</ion-col>
+				<ion-col col-2>
+					<button ion-button round block icon-right (click)="cambioIdioma('en')">{{ 'BotonEn' | translate }}<ion-icon name="flagcountry-en"></ion-icon></button>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col col-3></ion-col>
+				<ion-col col-6>
+					<button ion-button round block icon-right (click)="irFormAcceso()">{{ 'BotonComenzar' | translate }}<ion-icon name="ios-play"></ion-icon></button>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
 	</ion-list>
-	
 </ion-content>

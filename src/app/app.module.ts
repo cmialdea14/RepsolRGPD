@@ -11,7 +11,7 @@ import { FormularioPage } from '../pages/formulario/formulario';
 import { PdfPage } from '../pages/pdf/pdf';
 import { PadFirmaPage } from '../pages/pad-firma/pad-firma';
 
-
+import { TabsPageModule } from '../pages/tabs/tabs.module';
 import { HomePageModule } from '../pages/home/home.module';
 import { FormularioPageModule } from '../pages/formulario/formulario.module';
 import { PdfPageModule } from '../pages/pdf/pdf.module';
@@ -20,18 +20,34 @@ import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
 
 import { SignaturePadModule } from 'angular2-signaturepad';
+//Importamos Storage de Ionic
 import { IonicStorageModule } from '@ionic/storage';
 
+//Importamos módulo de traducción
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
+//Importamos la camara
+import { Camera, CameraOptions } from '@ionic-native/camera';
+
+
+//Creamos una función que desde src/assets/i18n obtengan los archivos de las traducciones de la aplicación
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
     MyApp,
-    TabsPage,
     PadFirmaPage
   ],
   imports: [
     BrowserModule,
+    //Añadimos el HttpClientModule para poder usar el HttpClient
+    HttpClientModule,
+    TabsPageModule,
     HomePageModule,
     FormularioPageModule,
     PdfPageModule,
@@ -40,7 +56,15 @@ import { IonicStorageModule } from '@ionic/storage';
       backButtonText: 'Atrás'
     }),
     SignaturePadModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    //Importamos el modulo de traducción
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,6 +80,7 @@ import { IonicStorageModule } from '@ionic/storage';
     SplashScreen,
     File,
     FileOpener,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

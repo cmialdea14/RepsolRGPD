@@ -1,3 +1,23 @@
 page-formulario {
+	.cardFoto{
+		width: calc(33% - 12px);
+		margin: 15px auto;
+	}
 
+	.itemFoto{
+		border: 1px solid black;
+		padding: 16px;
+		width: calc(100% - 32px);
+		margin-left: 16px;
+		height: 170px;
+	}
+
+	.validator-error{
+		color: red;
+		margin-left: 15px;
+	}
+	.validator-info{
+		color: #488aff;
+		margin-left: 15px;
+	}
 }

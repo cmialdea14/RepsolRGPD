@@ -6,6 +6,10 @@ import { Storage } from '@ionic/storage';
 
 import { PdfPage } from '../pdf/pdf';
 
+//Cambio texto botón Back(Usamos el provider TranslateService)
+import { ViewController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
+
 /**
  * Generated class for the PadFirmaPage page.
  *
@@ -19,10 +23,7 @@ import { PdfPage } from '../pdf/pdf';
 })
 export class PadFirmaPage {
 
-  //Creamos variable para guardar los datos del formualrio
-  datosFormulario;
-  pdfObj;
-
+  //Creamos variable para guardar los datos de la firma
   signature = '';
   isDrawing = false;	
 
@@ -35,9 +36,9 @@ export class PadFirmaPage {
     'penColor': '#000000'
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public toastCtrl: ToastController) {
-    this.datosFormulario = navParams.data.datosFormulario;
-    this.pdfObj = navParams.data.pdfObj;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public toastCtrl: ToastController,
+    public viewController: ViewController,private translateService: TranslateService) {
+
   }
 
   ionViewDidLoad() {
@@ -45,10 +46,19 @@ export class PadFirmaPage {
   }
 
   ionViewDidEnter() {
+    //Cambiamos el texto del botón Atrás del NavBar
+    if(this.translateService.currentLang == 'es'){
+      this.viewController.setBackButtonText('Atrás');  
+    }else{
+      this.viewController.setBackButtonText('Back');
+    }
+
+    //Limpiamos el pad
     this.signaturePad.clear()
-    this.storage.get('savedSignature').then((data) => {
+    this.storage.get('signature').then((data) => {
       this.signature = data;
     });
+
   }  
 
   drawComplete() {
@@ -61,18 +71,24 @@ export class PadFirmaPage {
  
   savePad() {
     this.signature = this.signaturePad.toDataURL();
-    //La guarda en el local Storage, pero no es lo que nos interesa
-    //this.storage.set('savedSignature', this.signature);
+    //Guardamos la firma en el local Storage
+    this.storage.set('signature', this.signature);
+    //Limpiamos el pad
     this.signaturePad.clear();
+    //Creamos mensaje de aviso
+    let toastFirmado;
+    this.translateService.get('ToastFirmado').subscribe(value => {
+      toastFirmado = value;
+    });
     let toast = this.toastCtrl.create({
-      message: 'Firmado correctamente',
+      message: toastFirmado,
       duration: 3000
     });
     toast.present();
 
-    //Mandamos la firma que ha dibujado a la página del documento.
-    this.navCtrl.push(PdfPage, {signature: this.signature, datosFormulario: this.datosFormulario, pdfObj: this.pdfObj});
-
+    //Quitamos la página de la pila del navegador de páginas 
+    this.navCtrl.pop();
+    
   }
  
   clearPad() {
@@ -82,7 +98,6 @@ export class PadFirmaPage {
   cancelPad(){
   	this.signaturePad.clear();
     this.navCtrl.pop();
-
   }
 
 }

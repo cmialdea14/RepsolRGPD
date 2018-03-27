@@ -1,0 +1,22 @@
+{
+  "TituloNavBarInicio": "Home",
+  "TituloHome": "Aceptation Process LOPD",
+  "BotonComenzar": "Start",
+  "BotonEs": "Spanish",
+  "BotonEn": "English",
+  "TituloTab": "Home",
+
+  "TituloNavBarForm":"Form",
+  "Nombre":"Name",
+  "Apellido1":"First Surname",
+  "Apellido2":"Second Surname",
+  "Email":"Email",
+  "BotonSiguiente":"Next",
+  "Foto":"Foto",
+  "BotonFoto":"Tomar foto",
+  
+  "AlertTimeOutTitle":"Warning",
+  "AlertTimeOutSubtitle":"Sorry, your time has expired, you can start again if you wish.",
+  "ToastFirmado":"Signed correctly",
+  "ToastErrorFoto": "Impossible to take the photo"
+}

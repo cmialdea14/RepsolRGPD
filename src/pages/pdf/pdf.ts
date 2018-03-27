@@ -9,6 +9,18 @@ import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
 
 import { PadFirmaPage } from '../pad-firma/pad-firma';
+//Importamos la pagina de Tabs, para volver a inicio
+import { TabsPage } from '../tabs/tabs';
+
+//Cambio texto botón Back(Usamos el provider TranslateService)
+import { ViewController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
+
+//Importamos el Storage
+import { Storage } from '@ionic/storage';
+
+//Importamos el provider de alertas
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the PdfPage page.
@@ -17,7 +29,9 @@ import { PadFirmaPage } from '../pad-firma/pad-firma';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  segment:'pdf'
+})
 @Component({
   selector: 'page-pdf',
   templateUrl: 'pdf.html',
@@ -37,29 +51,66 @@ export class PdfPage {
  
   pdfObj = null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private plt: Platform, private file: File, private fileOpener: FileOpener, public modalController: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private plt: Platform, private file: File, private fileOpener: FileOpener, public modalController: ModalController,
+    public viewController: ViewController,private translateService: TranslateService, private storage: Storage, public alertCtrl: AlertController) {
   	//Guardamos en nuestra variable los datos del formulario
-  	this.datosFormulario = navParams.data.datosFormulario;
-  	this.textoPdf.p1 = "Yo, " + this.datosFormulario.nombre + " " + this.datosFormulario.apellido1 + " " + this.datosFormulario.apellido2 +", acepto la nueva ley de protección de datos";
-  	this.textoPdf.p2 = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.";
-
-    //Guardamos en nuestra variable los datos de la firma
-    this.signature = navParams.data.signature;
-    console.log(this.signature);
-    //Guardamos en nuestra variable el pdf que viene de la pantalla de la firma
-    this.pdfObj = navParams.data.pdfObj;
-
+      this.storage.get('datosFormulario').then((value) => {
+      this.datosFormulario = value;
+      this.textoPdf.p1 = "Yo, " + this.datosFormulario.nombre + " " + this.datosFormulario.apellido1 + " " + this.datosFormulario.apellido2 +", acepto la nueva ley de protección de datos";
+      this.textoPdf.p2 = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.";
+    }).catch(()=>{
+      //Si no existen datos del formulario, volvemos a la página de inicio e iniciamos la pila de páginas de navegación
+      this.navCtrl.setRoot(TabsPage);
+      this.navCtrl.popToRoot();
+    });
+    
   }
 
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PdfPage');
+    // //Obtenemos los titulos de la alerta timeout de los ficheros de traducción
+    // let alertTimeOutTitle;
+    // let alertTimeOutSubtitle;
+    // this.translateService.get('AlertTimeOutTitle').subscribe(value => {
+    //   alertTimeOutTitle = value;
+    // });
+    // this.translateService.get('AlertTimeOutSubtitle').subscribe(value => {
+    //   alertTimeOutSubtitle = value;
+    // });
+
+    // //Volvemos a la página de inicio a los 20 minutos
+    // setTimeout(()=>{
+    //   //Generamos un mensaje de alerta, para indicar que su tiempo a finalizado y debe empezar de nuevo
+    //   let alert = this.alertCtrl.create({
+    //     title: alertTimeOutTitle,
+    //     subTitle: alertTimeOutSubtitle,
+    //     buttons: ['OK']
+    //   });
+    //   alert.present();
+    //   this.navCtrl.setRoot(TabsPage);
+    //   this.navCtrl.popToRoot();
+    // },1200000)//20 minutos
+  }
+
+  ionViewWillEnter() {
+    //Obtenemos la firma, en caso de existir, al entrar en la página, pero antes de ser cargada
+    this.storage.get('signature').then((value) => {
+      console.log('Existe firma');
+      this.signature = value;
+    })
+    //Cambiamos el texto del botón Atrás del NavBar
+    if(this.translateService.currentLang == 'es'){
+      this.viewController.setBackButtonText('Atrás');  
+    }else{
+      this.viewController.setBackButtonText('Back');
+    }
   }
 
 
   irPad(){
     console.log("Dentro pad");
-    this.navCtrl.push(PadFirmaPage, {datosFormulario: this.datosFormulario, pdfObj: this.pdfObj});
+    this.navCtrl.push(PadFirmaPage);
   }
 
   createPdf() {
@@ -130,7 +181,6 @@ export class PdfPage {
     }
     this.pdfObj = pdfMake.createPdf(docDefinition);
     //this.openSignatureModel();
-    //this.navCtrl.push(PadFirmaPage, {datosFormulario: this.datosFormulario, pdfObj: this.pdfObj});
   }
 
   downloadPdf() {
