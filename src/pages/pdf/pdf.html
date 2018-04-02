@@ -7,7 +7,7 @@ I<!--
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Nueva LOPD</ion-title>
+    <ion-title>{{ 'TituloNavBarLOPD' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,16 +19,27 @@ I<!--
 	<ion-item text-wrap>
 		<p>{{textoPdf.p1}}</p>
 		<p>{{textoPdf.p2}}</p>
-		<img *ngIf="signature" [src]="signature"/>
 	</ion-item>
+	<ion-grid>
+		<ion-row>
+			<ion-col col-12>
+				<img *ngIf="fotoFormulario" [src]="fotoFormulario"/>
+			</ion-col>	
+		</ion-row>	
+		<ion-row>
+			<ion-col col-12>
+				<img *ngIf="signature" [src]="signature"/>
+			</ion-col>	
+		</ion-row>					
+	</ion-grid>	
 
 	<ion-grid>
 		<ion-row>
-			<ion-col>
-				<button ion-button block (click)="irPad()">Firmar</button>
+			<ion-col col-6>
+				<button ion-button block (click)="irPad()">{{ 'BotonFirmar' | translate }}</button>
 			</ion-col>
-			<ion-col>
-				<button ion-button block (click)="createPdf();downloadPdf()" color="secondary" [disabled]="!signature">Enviar</button>
+			<ion-col col-6>
+				<button ion-button block (click)="createPdf();downloadPdf()" color="secondary" [disabled]="!signature">{{ 'BotonEnviar' | translate }}</button>
 			</ion-col>
 		</ion-row>
 	</ion-grid>

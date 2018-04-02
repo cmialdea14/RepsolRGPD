@@ -12,16 +12,16 @@ export class DocSpanishValidator {
 
     if(str){
 	    if(!nifRexp.test(str) && !nieRexp.test(str) && !passportRexp.test(str)){
-	     	return ({validNifNiePassport: true});
+	     	return ({notValidNifNiePassport: true});
 	    } else {
 			var nie = str.replace(/^[X]/, '0').replace(/^[Y]/, '1').replace(/^[Z]/, '2');
 			var letter = str.substr(-1);
 			var charIndex = parseInt(nie.substr(0, 8)) % 23;
 
 			if (validChars.charAt(charIndex) === letter){
-				return ({validNifNiePassport: false});
+				return (null);
 			} else{
-				return ({validNifNiePassport: true});
+				return ({notValidNifNiePassport: true});
 			}
 	    }
 	} else{ 
@@ -29,4 +29,22 @@ export class DocSpanishValidator {
 		return (null);
 	}
   }
+
+  //metodo que comprueba si es un email válido
+  static notValidEmail(fc: FormControl){
+
+	var emailRexp = /^[\w]+@{1}[\w]+\.+[a-z]{2,3}$/i;
+	var str = fc.value.toString().toUpperCase();
+
+    if(str){
+	    if(!emailRexp.test(str)){
+	     	return ({notValidEmail: true});
+	    } else {
+			return (null);
+	    }
+	} else{ 
+		//Si no hemos introducido nada en el campo que no salte el error, ya está el required
+		return (null);
+	}
+  }  
 }

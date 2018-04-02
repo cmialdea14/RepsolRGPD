@@ -42,7 +42,8 @@ export class PdfPage {
   datosFormulario
   //Creamos variable para guardar la firma
   signature
-
+  //Creamos variable para guardar la fotografía
+  fotoFormulario
   //Creamos las variables para el formulario
   textoPdf = {
   	p1: '',
@@ -94,9 +95,12 @@ export class PdfPage {
   }
 
   ionViewWillEnter() {
+    //Obtenemos la fotografía, al entrar en la página, pero antes de ser cargada
+    this.storage.get('fotoFormulario').then((value) => {
+      this.fotoFormulario = value;
+    })
     //Obtenemos la firma, en caso de existir, al entrar en la página, pero antes de ser cargada
     this.storage.get('signature').then((value) => {
-      console.log('Existe firma');
       this.signature = value;
     })
     //Cambiamos el texto del botón Atrás del NavBar
@@ -146,21 +150,24 @@ export class PdfPage {
         }
       }
     }else{
-      console.log(this.signature);
-      var firma = new Image;
-      firma = this.signature.replace(/^data:image\/(png|jpg);base64,/, "");
+      console.log(this.fotoFormulario);
+      // var firma = new Image;
+      // firma = this.signature.replace(/^data:image\/(png|jpg);base64,/, "");
 
       docDefinition = {
         content: [
           { text: 'Nueva LOPD Mayo 2018', style: 'header' },
           { text: this.textoPdf.p1, style: 'subheader' },
           { text: this.textoPdf.p2, style: 'story', margin: [0, 20, 0, 20] },
-          { image: 'mySuperImage', alignment: 'center', width: 100 },
+          { image: this.fotoFormulario, alignment: 'center', width: 100 },
+          { image: 'firma', alignment: 'center', width: 100 },
           { text: new Date().toLocaleDateString(), alignment: 'right' }
         ],
-        images: {
-          mySuperImage: this.signature, width: 100, height: 100
-        },
+        images: 
+          {
+            firma: this.signature, width: 100, height: 100
+          }
+        ,
         styles: {
           header: {
             fontSize: 18,

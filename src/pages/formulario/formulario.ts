@@ -35,20 +35,22 @@ import { DocSpanishValidator } from '../../assets/validators/docspanish.validato
   templateUrl: 'formulario.html',
 })
 export class FormularioPage {
-  //Creamos variable con la imagen capturada
+  //Creamos variable con la imagen capturada 
   foto;
+  fotoCapturada:boolean = false;
 
   private formularioAcceso:FormGroup;	
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder:FormBuilder, public viewController: ViewController,private translateService: TranslateService,
     private storage: Storage, public alertCtrl: AlertController, private camera: Camera, public toastCtrl: ToastController) {
+    
   	this.formularioAcceso = formBuilder.group(
   		{
-  			nombre: new FormControl("",[Validators.required, Validators.pattern("([A-Z][a-zA-Z]*)")]),
-  			apellido1:  new FormControl("",[Validators.required, Validators.pattern("([A-Z][a-zA-Z]*)")]),
-  			apellido2:  new FormControl("",[Validators.pattern("([A-Z][a-zA-Z]*)")]),
-        identidad: new FormControl("",[Validators.required, DocSpanishValidator.notValidNifNiePassport]),
-  			email: ["", Validators.email]
+  			nombre: new FormControl("",[Validators.required, Validators.pattern("^([A-ZÁÉÍÓÚ]{1}[a-zñáéíó]+[\\s]*)+$")]),
+  			apellido1:  new FormControl("",[Validators.required, Validators.pattern("^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\\s]*)+$")]),
+  			apellido2:  new FormControl("",[Validators.pattern("^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\\s]*)+$")]),
+        identidad: new FormControl("",Validators.compose([Validators.required, DocSpanishValidator.notValidNifNiePassport])),
+  			email: ["", Validators.compose([Validators.required, DocSpanishValidator.notValidEmail])]
   		}
   	)
   }
@@ -98,6 +100,8 @@ export class FormularioPage {
 
   //Enviamos el formulario
   enviarForm(){
+    //Guardamos en el Storage fotografía
+    this.storage.set('fotoFormulario',this.foto);
     //Guardamos en el Storage datosFormulario
     this.storage.set('datosFormulario', this.formularioAcceso.value).then((data) => {
       //Vamos a la pantalla pdf
@@ -122,9 +126,12 @@ export class FormularioPage {
     this.camera.getPicture(options)
     .then((imagenData)=>{
       this.foto = 'data:image/jpeg;base64,' + imagenData;
+      //this.foto = 'data:image/png;base64,' + imagenData;
+      this.fotoCapturada = true;
     })
     .catch((error)=>{
       console.log(error);
+      this.fotoCapturada = false;
       this.mostrarErrorFoto();
     })
   }

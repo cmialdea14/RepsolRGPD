@@ -10,13 +10,30 @@
   "Nombre":"Nombre",
   "Apellido1":"Primer Apellido",
   "Apellido2":"Segundo Apellido",
+  "Identidad":"Número documento identidad (DNI/NIF/NIE)",
   "Email":"Email",
   "BotonSiguiente":"Siguiente",
   "Foto":"Foto",
   "BotonFoto":"Tomar foto",
+  "TextoInfoFoto":"Debe tomarse una foto. Para ello haga click en \"Tomar foto\"",
+  "CampoObligatorio":"Campo obligatorio",
+  "ValidacionNombre":"El nombre no es válido, compruebe que la primera letra es mayúscula y que no haya introducido números",
+  "ValidacionApellido":"El apellido no es válido, compruebe que la primera letra es mayúscula y que no haya introducido números",
+  "ValidacionIdentidad":"El documento identificativo no es válido, compruebe que lo ha escrito correctamente",
+  "ValidacionEmail":"El email no es válido, compruebe que lo ha escrito correctamente",
   
   "AlertTimeOutTitle":"Advertencia",
   "AlertTimeOutSubtitle":"Lo sentimos, su tiempo ha finalizado, puede comenzar de nuevo si lo desea.",
   "ToastFirmado":"Firmado correctamente",
-  "ToastErrorFoto": "Impossible to take the photo"
+  "ToastErrorFoto": "Impossible to take the photo",
+
+  "TituloNavBarLOPD":"LOPD",
+  "BotonFirmar":"Firmar",
+  "BotonEnviar":"Enviar",
+
+  "TituloNavBarFirma":"Firma LOPD",
+  "TextoInfoFirma":"Por favor, firme en el cuadro marcado",
+  "BotonCancelar":"Cancelar",
+  "BotonLimpiar":"Limpiar",
+  "BotonGuardar":"Guardar"
 }

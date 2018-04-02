@@ -2,6 +2,11 @@ page-pad-firma {
 	signature-pad{
 		canvas{
 			border: 1px dashed #333;
+			width:100%;
 		}
+	}
+
+	.infoFirma{
+		text-align:center;
 	}
 }	

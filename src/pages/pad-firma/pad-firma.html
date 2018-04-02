@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Firma LOPD</ion-title>
+    <ion-title>{{ 'TituloNavBarFirma' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,24 +15,24 @@
 
 <ion-content padding>
 		
-		<div class="title">Por favor, firme en el cuadro marcado</div>
+		<div class="infoFirma">{{ 'TextoInfoFirma' | translate }}</div>
 		<ion-grid>
 			<ion-row [ngClass]="{'drawing-active': isDrawing}">
-				<ion-col col-4-md></ion-col>
-				<ion-col col-4-md>
+				<ion-col col-4></ion-col>
+				<ion-col col-4>
 		  			<signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
 				</ion-col>
-				<ion-col col-4-md></ion-col>
+				<ion-col col-4></ion-col>
 			</ion-row>
 			<ion-row>
 				<ion-col col-4>
-					<button ion-button full color="danger" (click)="cancelPad()">Cancelar</button>
+					<button ion-button full color="danger" (click)="cancelPad()">{{ 'BotonCancelar' | translate }}</button>
 				</ion-col>
 				<ion-col col-4>
-					<button ion-button full color="light" (click)="clearPad()">Limpiar</button>
+					<button ion-button full color="light" (click)="clearPad()">{{ 'BotonLimpiar' | translate }}</button>
 				</ion-col>
 				<ion-col col-4>
-					<button ion-button full color="secondary" (click)="savePad()">Guardar</button>
+					<button ion-button full color="secondary" (click)="savePad()">{{ 'BotonGuardar' | translate }}</button>
 				</ion-col>
 			</ion-row>
 		</ion-grid>

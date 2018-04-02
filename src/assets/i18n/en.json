@@ -10,13 +10,31 @@
   "Nombre":"Name",
   "Apellido1":"First Surname",
   "Apellido2":"Second Surname",
+  "Identidad":"Identification document number (DNI/NIF/NIE)",
   "Email":"Email",
   "BotonSiguiente":"Next",
-  "Foto":"Foto",
-  "BotonFoto":"Tomar foto",
+  "Foto":"Photo",
+  "BotonFoto":"Take photo",
+  "TextoInfoFoto":"A photo should be taken. To do this click on \"Take photo\"",
+  "CampoObligatorio":"Required field",
+  "ValidacionNombre":"The name is invalid, check that the first letter is capitalized and that you haven't entered numbers",
+  "ValidacionApellido":"The surname is invalid, check that the first letter is capitalized and that you haven't entered numbers",
+  "ValidacionIdentidad":"The identification document number is invalid, check that you have written it correctly",
+  "ValidacionEmail":"The email is invalid, check that you have written it correctly",
+
   
   "AlertTimeOutTitle":"Warning",
   "AlertTimeOutSubtitle":"Sorry, your time has expired, you can start again if you wish.",
   "ToastFirmado":"Signed correctly",
-  "ToastErrorFoto": "Impossible to take the photo"
+  "ToastErrorFoto": "Impossible to take the photo",
+
+  "TituloNavBarLOPD":"LOPD",
+  "BotonFirmar":"Sign",
+  "BotonEnviar":"Send",
+
+  "TituloNavBarFirma":"LOPD Sign",
+  "TextoInfoFirma":"Please, sign in the box marked",
+  "BotonCancelar":"Cancel",
+  "BotonLimpiar":"Clean",
+  "BotonGuardar":"Save"
 }

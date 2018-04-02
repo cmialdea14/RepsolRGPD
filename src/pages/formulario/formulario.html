@@ -24,7 +24,7 @@
 	  </ion-item>
 	  <ion-card-content>		
 		<button ion-button type="button" block small (click)="capturarFoto()">{{ 'BotonFoto' | translate }}</button>
-		<p text-center>Debe de tomarse una foto. Para ello haga click en "Tomar foto"</p>
+		<p text-center *ngIf="!fotoCapturada">{{ 'TextoInfoFoto' | translate }}</p>
 	  </ion-card-content>
 	</ion-card>
 
@@ -36,50 +36,50 @@
 				<ion-input type="string" formControlName="nombre" ></ion-input>
 			</ion-item>
 			<div class="validator-info" *ngIf="formularioAcceso.controls.nombre.hasError('required')">
-				  Campo obligatorio
+				  {{ 'CampoObligatorio' | translate }}
 			</div>
 			<div class="validator-error" *ngIf="formularioAcceso.controls.nombre.hasError('pattern')">
-				  El nombre no es válido, compruebe que la primera letra es mayúscula y que no haya introducido números
+				 {{ 'ValidacionNombre' | translate }}
 			</div>
 			<ion-item>
 				<ion-label floating>{{ 'Apellido1' | translate }}</ion-label>
 				<ion-input type="string" formControlName="apellido1" ></ion-input>
 			</ion-item>
 			<div class="validator-info" *ngIf="formularioAcceso.controls.apellido1.hasError('required')">
-				  Campo obligatorio
+				  {{ 'CampoObligatorio' | translate }}
 			</div>
 			<div class="validator-error" *ngIf="formularioAcceso.controls.apellido1.hasError('pattern')">
-				  El apellido no es válido, compruebe que la primera letra es mayúscula y que no haya introducido números
+				  {{ 'ValidacionApellido' | translate }}
 			</div>			
 			<ion-item>
 				<ion-label floating>{{ 'Apellido2' | translate }}</ion-label>
 				<ion-input type="string" formControlName="apellido2"></ion-input>
 			</ion-item>
 			<div class="validator-error" *ngIf="formularioAcceso.controls.apellido2.hasError('pattern')">
-				  El apellido no es válido, compruebe que la primera letra es mayúscula y que no haya introducido números
+				  {{ 'ValidacionApellido' | translate }}
 			</div>	
 			<ion-item>
-				<ion-label floating>{{ 'identidad' | translate }}</ion-label>
+				<ion-label floating>{{ 'Identidad' | translate }}</ion-label>
 				<ion-input type="string" formControlName="identidad"></ion-input>
 			</ion-item>
 			<div class="validator-info" *ngIf="formularioAcceso.controls.identidad.hasError('required')">
-				  Campo obligatorio
+				  {{ 'CampoObligatorio' | translate }}
 			</div>
-			<div class="validator-error" *ngIf="formularioAcceso.controls.identidad.hasError('validNifNiePassport')">
-				  El documento identificativo no es válido, compruebe que lo ha escrito correctamente
+			<div class="validator-error" *ngIf="formularioAcceso.controls.identidad.hasError('notValidNifNiePassport')">
+				  {{ 'ValidacionIdentidad' | translate }}
 			</div>						
 			<ion-item>
 				<ion-label floating>{{ 'Email' | translate }}</ion-label>
 				<ion-input type="email" formControlName="email"></ion-input>
 			</ion-item>
 			<div class="validator-info" *ngIf="formularioAcceso.controls.email.hasError('required')">
-				  Campo obligatorio
+				  {{ 'CampoObligatorio' | translate }}
 			</div>
-			<div class="validator-error" *ngIf="formularioAcceso.controls.email.hasError('pattern')">
-				  El email no es válido, compruebe que lo ha escrito correctamente
+			<div class="validator-error" *ngIf="formularioAcceso.controls.email.hasError('notValidEmail')">
+				  {{ 'ValidacionEmail' | translate }}
 			</div>			
 			<ion-item>
-				<button ion-button type="submit" block [disabled]="!formularioAcceso.valid && foto !== undefined">{{ 'BotonSiguiente' | translate }}</button>
+				<button ion-button type="submit" block [disabled]="!formularioAcceso.valid || !fotoCapturada">{{ 'BotonSiguiente' | translate }}</button>
 			</ion-item>
 
 		</ion-list>
