@@ -27,7 +27,9 @@
 		<p text-center *ngIf="!fotoCapturada">{{ 'TextoInfoFoto' | translate }}</p>
 	  </ion-card-content>
 	</ion-card>
-
+	
+	<!--Titulo Formulario-->
+	<h2 class="titleForm">{{ 'TituloForm' | translate }}</h2>
 	<!--Formulario con data driven forms (FORM BUILDER)-->
 	<form class="formulario" [formGroup]="formularioAcceso" (ngSubmit)="enviarForm()">
 		<ion-list>
