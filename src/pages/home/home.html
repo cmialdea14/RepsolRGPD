@@ -15,23 +15,27 @@
 <ion-content padding>
 	<ion-list>
 		<ion-item>
-			<ion-title>{{ 'TituloHome' | translate }}</ion-title>
+			<img src="/assets/imgs/repsol.jpg">
 		</ion-item>
-
+		<ion-card>
+			<img src="/assets/imgs/edificio_campus_Repsol.jpg"/>
+			<div class="card-title">{{ 'TituloHome' | translate }}</div>
+			<div class="card-subtitle">{{ 'SubtituloHome' | translate }}</div>
+		</ion-card>
 		<ion-grid>
 			<ion-row>
-				<ion-col col-4></ion-col>
-				<ion-col col-2>
-					<button ion-button round block icon-right (click)="cambioIdioma('es')">{{ 'BotonEs' | translate }}<ion-icon name="flagcountry-es"></ion-icon></button>
+				<ion-col col-3></ion-col>
+				<ion-col col-3>
+					<button ion-button color="repsol" large round block icon-right (click)="cambioIdioma('es')">{{ 'BotonEs' | translate }}<ion-icon name="flagcountry-es"></ion-icon></button>
 				</ion-col>
-				<ion-col col-2>
-					<button ion-button round block icon-right (click)="cambioIdioma('en')">{{ 'BotonEn' | translate }}<ion-icon name="flagcountry-en"></ion-icon></button>
+				<ion-col col-3>
+					<button ion-button large round block icon-right (click)="cambioIdioma('en')">{{ 'BotonEn' | translate }}<ion-icon name="flagcountry-en"></ion-icon></button>
 				</ion-col>
 			</ion-row>
 			<ion-row>
-				<ion-col col-3></ion-col>
-				<ion-col col-6>
-					<button ion-button round block icon-right (click)="irFormAcceso()">{{ 'BotonComenzar' | translate }}<ion-icon name="ios-play"></ion-icon></button>
+				<ion-col col-2></ion-col>
+				<ion-col col-8>
+					<button ion-button large round block icon-right (click)="irFormAcceso()">{{ 'BotonComenzar' | translate }}<ion-icon name="ios-play"></ion-icon></button>
 				</ion-col>
 			</ion-row>
 		</ion-grid>

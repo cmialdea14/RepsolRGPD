@@ -22,7 +22,12 @@ $app-direction: ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
-
+//Cambio color fondo tab
+$tabs-background: #FE8200;
+//Cambio color iconos tab
+$tabs-tab-color-active: #FFF;
+//Cambiamos color de fondo toolbar
+$toolbar-background: #FE8200;
 
 
 // Named Color Variables
@@ -33,12 +38,34 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+//Colores de REPSOL
+//AZUL OSCURO --> #091742
+//NARANJA --> #FE8200
+//GRIS --> #6B5D54
+//ROJO --> #DA1B2F
+
+// $colors: (
+//   primary:    #488aff,//azul claro
+//   secondary:  #32db64,//verde
+//   danger:     #f53d3d,//rojo
+//   light:      #f4f4f4,//gris claro
+//   dark:       #222,
+//   repsol: (
+//   	base:	#6B5D54,//naranja
+//   	contrast:  #FFF//azuloscuro
+//   )
+// );
+
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  primary:    #FE8200,//naranja
+  secondary:  #091742,//azul oscuro
+  danger:     #DA1B2F,//rojo
+  light:      #6B5D54,//gris
+  dark:       #222,
+  colorTab: (
+  	base:	#6B5D54,//naranja
+  	contrast:  #FFF//blanco
+  )
 );
 
 

@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 
 import { PdfPage } from '../pdf/pdf';
 
+
 //Importamos el módulo de traducciones. Necesitamos ViewController y el provider TranslateService
 import { ViewController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
@@ -38,13 +39,14 @@ export class FormularioPage {
   //Creamos variable con la imagen capturada 
   foto;
   fotoCapturada:boolean = false;
+  tutoDone:boolean;
 
   private formularioAcceso:FormGroup;	
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder:FormBuilder, public viewController: ViewController,private translateService: TranslateService,
     private storage: Storage, public alertCtrl: AlertController, private camera: Camera, public toastCtrl: ToastController) {
     
-  	this.formularioAcceso = formBuilder.group(
+    this.formularioAcceso = formBuilder.group(
   		{
   			nombre: new FormControl("",[Validators.required, Validators.pattern("^([A-ZÁÉÍÓÚ]{1}[a-zñáéíó]+[\\s]*)+$")]),
   			apellido1:  new FormControl("",[Validators.required, Validators.pattern("^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\\s]*)+$")]),
@@ -57,7 +59,6 @@ export class FormularioPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FormularioPage');
-
     // //Obtenemos los titulos de la alerta timeout de los ficheros de traducción
     // let alertTimeOutTitle;
     // let alertTimeOutSubtitle;
@@ -95,7 +96,8 @@ export class FormularioPage {
       this.viewController.setBackButtonText('Atrás');  
     }else{
       this.viewController.setBackButtonText('Back');
-    }
+    }   
+
   }
 
   //Enviamos el formulario

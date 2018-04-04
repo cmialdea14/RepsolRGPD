@@ -1,0 +1,65 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+//Importamos la TABS para pasar a ella en cualquier momento del tutorial
+import { TabsPage } from '../tabs/tabs';
+//Importamos el Storage
+import { Storage } from '@ionic/storage';
+
+/**
+ * Generated class for the TutorialPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
+@Component({
+  selector: 'page-tutorial',
+  templateUrl: 'tutorial.html',
+})
+export class TutorialPage {
+
+	slides = [
+	    {
+	      title: "Bienvenido a REPSOL!",
+	      description: "Para su comodidad y seguridad, <b>Repsol</b>, pone a su disposición una nueva app para la aceptación de la nueva ley de protección de datos.",
+	      image: "../assets/imgs/repsol.jpg",
+	    },
+	    {
+	      title: "Datos Personales",
+	      description: "Debe rellenar los campos obligatorios del formulario de acceso y tomarse una foto.",
+	      image: "../assets/imgs/form.jpg",
+	    },
+	    {
+	      title: "Nueva Ley de Protección de Datos",
+	      description: "Se mostrará el documento a firmar, ya completado con los datos recogidos en el formulario.",
+	      image: "../assets/imgs/documento.jpg",
+	    },
+	    {
+	      title: "Firma del documento",
+	      description: "Al pulsar <b>Firmar</b>, le aparecerá el pad de firma, con el cual debe firmar el documento.",
+	      image: "../assets/imgs/firma.jpg",
+	    },
+	    {
+	      title: "Documento cumplimentado!",
+	      description: "Para terminar el proceso, pulse en <b>Enviar</b>",
+	      image: "../assets/imgs/documentoFirmado.jpg",
+	    },
+  	];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad TutorialPage');
+  }
+
+  //Navegamos a la home
+  navegarHome(){
+  	this.navCtrl.setRoot(TabsPage);
+  	//this.navCtrl.popToRoot();
+  	this.storage.set('tutoDone', true);
+  }
+
+}
