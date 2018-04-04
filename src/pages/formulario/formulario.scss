@@ -3,7 +3,25 @@ page-formulario {
 		width: calc(33% - 12px);
 		margin: 15px auto;
 	}
+	.card-title-ios, .card p{
+		color: #091742;
+		font-weight: bold;
+	}
 
+	.card p{
+		color: #6B5D54;
+		font-style: italic
+	}	
+
+	ion-input{
+		color: #091742;
+	}
+
+	ion-label{
+		color: #FE8200;
+		font-weight: bold;
+	}
+		
 	.itemFoto{
 		border: 1px solid black;
 		padding: 16px;
@@ -13,11 +31,11 @@ page-formulario {
 	}
 
 	.validator-error{
-		color: red;
+		color: #DA1B2F;
 		margin-left: 15px;
 	}
 	.validator-info{
-		color: #488aff;
+		color: #00859B;
 		margin-left: 15px;
 	}
 }

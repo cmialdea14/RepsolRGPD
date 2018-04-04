@@ -21,29 +21,30 @@ export class TutorialPage {
 
 	slides = [
 	    {
-	      title: "Bienvenido a REPSOL!",
-	      description: "Para su comodidad y seguridad, <b>Repsol</b>, pone a su disposición una nueva app para la aceptación de la nueva ley de protección de datos.",
-	      image: "../assets/imgs/repsol.jpg",
+	      title: "Bienvenido a REPSOL",
+	      description: "Para su comodidad y seguridad, <b>Repsol</b>, pone a su disposición una nueva app para la aceptación de la nueva <b>ley de protección de datos</b>. <br/> <br/>Para comenzar, os mostramos un pequeño <b>tutorial</b>, que usted podrá cerrar en cualquier momento con el botón <i>Omitir</i> de la parte superior derecha.",
+	      image: "assets/imgs/repsol.jpg",
+	      icon: "school",
 	    },
 	    {
 	      title: "Datos Personales",
 	      description: "Debe rellenar los campos obligatorios del formulario de acceso y tomarse una foto.",
-	      image: "../assets/imgs/form.jpg",
+	      image: "assets/imgs/form.jpg",
 	    },
 	    {
 	      title: "Nueva Ley de Protección de Datos",
 	      description: "Se mostrará el documento a firmar, ya completado con los datos recogidos en el formulario.",
-	      image: "../assets/imgs/documento.jpg",
+	      image: "assets/imgs/documento.jpg",
 	    },
 	    {
 	      title: "Firma del documento",
 	      description: "Al pulsar <b>Firmar</b>, le aparecerá el pad de firma, con el cual debe firmar el documento.",
-	      image: "../assets/imgs/firma.jpg",
+	      image: "assets/imgs/firma.jpg",
 	    },
 	    {
 	      title: "Documento cumplimentado!",
 	      description: "Para terminar el proceso, pulse en <b>Enviar</b>",
-	      image: "../assets/imgs/documentoFirmado.jpg",
+	      image: "assets/imgs/documentoFirmado.jpg",
 	    },
   	];
 
