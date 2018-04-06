@@ -17,7 +17,7 @@
   "BotonSiguiente":"Siguiente",
   "Foto":"Foto",
   "BotonFoto":"Tomar foto",
-  "TextoInfoFoto":"Debe tomarse una foto. Para ello haga click en \"Tomar foto\"",
+  "TextoInfoFoto":"Debe tomarse una foto. Haga click en \"Tomar foto\"",
   "CampoObligatorio":"Campo obligatorio",
   "ValidacionNombre":"El nombre no es válido, compruebe que la primera letra es mayúscula y que no haya introducido números",
   "ValidacionApellido":"El apellido no es válido, compruebe que la primera letra es mayúscula y que no haya introducido números",
@@ -33,7 +33,8 @@
   "TituloDocumento":"Ley Protección de Datos",
   "TextoInstruccionLectura1":"El siguiente texto, es la nueva ley de protección de datos, necesitamos su consentimiento para que pueda acceder al edificio.",
   "TextoInstruccionLectura2":"Por favor, lea atentamente su contenido",
-  "TextoInstruccionFirma":"Si está de acuerdo, debe firmar haciendo clic en el botón \"Firmar\". Una vez ha firmado, para finalizar el proceso, haga click en el botón \"Enviar\"",
+  "TextoInstruccionSinFirma":"Si está de acuerdo, debe firmar haciendo clic en el botón \"Firmar\".",
+  "TextoInstruccionFirmado":"¡Perfecto! Para finalizar el proceso, haga click en el botón \"Enviar\"",
   "BotonFirmar":"Firmar",
   "BotonEnviar":"Enviar",
 

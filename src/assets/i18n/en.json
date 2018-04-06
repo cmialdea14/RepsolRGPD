@@ -17,7 +17,7 @@
   "BotonSiguiente":"Next",
   "Foto":"Photo",
   "BotonFoto":"Take photo",
-  "TextoInfoFoto":"A photo should be taken. To do this click on \"Take photo\"",
+  "TextoInfoFoto":"A photo should be taken. Do click on \"Take photo\"",
   "CampoObligatorio":"Required field",
   "ValidacionNombre":"The name is invalid, check that the first letter is capitalized and that you haven't entered numbers",
   "ValidacionApellido":"The surname is invalid, check that the first letter is capitalized and that you haven't entered numbers",
@@ -34,7 +34,8 @@
   "TituloDocumento":"Ley Protección de Datos",
   "TextoInstruccionLectura1":"El siguiente texto, es la nueva ley de protección de datos, necesitamos su consentimiento para que pueda acceder al edificio.",
   "TextoInstruccionLectura2":"Por favor, lea atentamente su contenido",
-  "TextoInstruccionFirma":"Si está de acuerdo, debe firmar haciendo clic en el botón \"Firmar\". Una vez ha firmado, para finalizar el proceso, haga click en el botón \"Enviar\"",
+  "TextoInstruccionSinFirma":"Si está de acuerdo, debe firmar haciendo clic en el botón \"Firmar\".",
+  "TextoInstruccionFirmado":"¡Perfecto! Para finalizar el proceso, haga click en el botón \"Enviar\"",
   "BotonFirmar":"Sign",
   "BotonEnviar":"Send",
 
