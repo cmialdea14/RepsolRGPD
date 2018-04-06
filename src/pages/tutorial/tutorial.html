@@ -21,15 +21,13 @@
           <button ion-button color="danger" (click)="navegarHome()">Omitir</button>
         </ion-buttons>
       <img [src]="slide.image" class="slide-image"/>
-      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <h1 class="slide-title" [innerHTML]="slide.title"></h1>
       <p [innerHTML]="slide.description"></p>
       <ion-icon *ngIf="slide.icon" [name]="slide.icon"></ion-icon>
     </ion-slide>
     <ion-slide>
-      <ion-toolbar>
-      </ion-toolbar>
       <img src="assets/imgs/marquez.jpg" class="slide-image"/>
-      <h2 class="slide-title">¡Comenzamos!</h2>
+      <h1 class="slide-title">¡Comenzamos!</h1>
       <button ion-button large clear icon-end color="primary" (click)="navegarHome()">
         Go!!
         <ion-icon name="thumbs-up"></ion-icon>

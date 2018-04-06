@@ -1,7 +1,7 @@
 {
   "TituloNavBarInicio": "Inicio",
   "TituloHome": "Bienvenido",
-  "SubtituloHome":"Proceso Aceptación LOPD",
+  "SubtituloHome":"Proceso Aceptación RGPD",
   "BotonComenzar": "Comenzar",
   "BotonEs": "Español",
   "BotonEn": "Inglés",
@@ -29,11 +29,14 @@
   "ToastFirmado":"Firmado correctamente",
   "ToastErrorFoto": "Impossible to take the photo",
 
-  "TituloNavBarLOPD":"LOPD",
+  "TituloNavBarRGPD":"RGPD",
+  "TituloDocumento":"Ley Protección de Datos",
+  "TextoInstruccionLectura":"El siguiente texto, es la nueva ley de protección de datos, necesitamos su consentimiento para que pueda acceder al edificio.<br> Por favor, lea atentamente su contenido",
+  "TextoInstruccionFirma":"Si está de acuerdo, debe firmar haciendo clic en el botón \"Firmar\". Una vez ha firmado, para finalizar el proceso, haga click en el botón \"Enviar\"",
   "BotonFirmar":"Firmar",
   "BotonEnviar":"Enviar",
 
-  "TituloNavBarFirma":"Firma LOPD",
+  "TituloNavBarFirma":"Firma RGPD",
   "TextoInfoFirma":"Por favor, firme en el cuadro marcado",
   "BotonCancelar":"Cancelar",
   "BotonLimpiar":"Limpiar",

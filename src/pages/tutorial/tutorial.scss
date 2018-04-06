@@ -20,18 +20,28 @@ page-tutorial {
     margin: 18px 0;
   }
 
-  b {
-    font-weight: 500;
+  .button-inner{
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  h1 {
+    color: #60646B;
+    font-weight: bold;
+    font-size: 3.6rem;
   }
 
   p {
     padding: 0 40px;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.5;
     color: #60646B;
 
     b {
-      color: #000000;
+      //color: #000000;
+    }
+    i {
+      font-weight: bold;
     }
   }
 

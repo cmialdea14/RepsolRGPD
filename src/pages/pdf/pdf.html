@@ -7,36 +7,47 @@ I<!--
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ 'TituloNavBarLOPD' | translate }}</ion-title>
+    <ion-title>{{ 'TituloNavBarRGPD' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
 	<ion-item>
-		<h2>LOPD</h2>
+		<h2><ion-icon class="libro" ios="ios-book-outline" md="md-book"></ion-icon> {{ 'TituloNavBarRGPD' | translate }}</h2>
 	</ion-item>
-	<ion-item text-wrap>
+	<div class="instruccion">
+		<h4>{{ 'TextoInstruccionLectura' | translate }}</h4>
+		<div class="lectura-group">
+			<ion-icon class="icon-lectura-group" ios="ios-glasses-outline" md="md-glasses"></ion-icon>
+			<ion-icon class="icon-lectura-group" ios="ios-arrow-round-forward" md="md-arrow-round-forward"></ion-icon>
+			<ion-icon class="icon-lectura-group" ios="ios-paper-outline" md="md-paper"></ion-icon>
+		</div>
+	</div>
+	
+	<div class="documento" text-wrap>
+		<h2>{{ 'TituloDocumento' | translate }}</h2>
 		<p>{{textoPdf.p1}}</p>
 		<p>{{textoPdf.p2}}</p>
-	</ion-item>
-	<ion-grid>
-		<ion-row>
-			<ion-col col-12>
-				<img *ngIf="fotoFormulario" [src]="fotoFormulario"/>
-			</ion-col>	
-		</ion-row>	
-		<ion-row>
-			<ion-col col-12>
-				<img *ngIf="signature" [src]="signature"/>
-			</ion-col>	
-		</ion-row>					
-	</ion-grid>	
+	</div>
+	<div class="foto-firma">
+		<img *ngIf="fotoFormulario" [src]="fotoFormulario"/>
+		<img *ngIf="signature" [src]="signature"/>
+	</div>
+
+	<div class="instruccion">
+		<h4>{{ 'TextoInstruccionFirma' | translate }}</h4>
+		<div class="lectura-group">
+			<ion-icon class="icon-lectura-group" ios="ios-create-outline" md="md-create"></ion-icon>
+			<ion-icon class="icon-lectura-group" ios="ios-arrow-round-forward" md="md-arrow-round-forward"></ion-icon>
+			<ion-icon class="icon-lectura-group" ios="ios-person-add-outline" md="md-paper"></ion-icon>
+		</div>
+	</div>	
 
 	<ion-grid>
 		<ion-row>
 			<ion-col col-6>
-				<button ion-button block (click)="irPad()">{{ 'BotonFirmar' | translate }}</button>
+				<button ion-button block (click)="irPad()" color="secondary">{{ 'BotonFirmar' | translate }}</button>
 			</ion-col>
 			<ion-col col-6>
 				<button ion-button block (click)="createPdf();downloadPdf()" color="secondary" [disabled]="!signature">{{ 'BotonEnviar' | translate }}</button>

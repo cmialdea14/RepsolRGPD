@@ -5,4 +5,89 @@ page-pdf {
 	  display: block;
 	  margin: auto;
 	}
+
+	.ion-label p {
+		font-size: 14px;
+	}
+
+	.documento, .item{
+
+		h2 {
+			color: #091742;
+		    font-weight: bold;
+		    font-style: italic;
+		    text-align: center;
+		    font-size: 2.4rem;
+		}
+	}
+
+	.documento{
+		margin: 15px 50px;
+		padding: 20px;
+		//https://www.cssmatic.com/box-shadow
+		box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+		overflow-y: scroll;
+		max-height: 37%;
+	}
+
+	
+	
+	.instruccion {
+		margin: 15px;
+
+		h4 {
+			font-size: 16px;
+			font-weight: bold;
+			padding: 0 40px;
+		    line-height: 1.5;
+		    color: #60646B;
+		    text-align: center;
+		}
+	}
+
+	.lectura-group {
+		width: 40%;
+	    display: flex;
+	    flex-direction: row;
+	    margin: 10px auto;
+	}
+
+	 //icon libro
+  	.libro {
+        font-size: 20px;
+        color: #091742;
+        font-weight: bold;
+    }
+
+	//icon lectura
+    .icon-lectura-group {
+    	font-size: 60px;
+    	color: #00859B;
+    	display: block;
+    	margin: 0px auto;
+    }
+
+    //
+    .foto-firma {
+		display: flex;
+	    flex-direction: row;
+	    margin: 0px auto;
+	    width: 40%;
+
+	    img {
+	    	display: block;
+	    	//margin: 0px auto;
+	    	//width: calc(100% - 32px);
+	    	max-width: 160px;
+		  	max-height: 136px;
+		  	width: auto;
+		  	height: auto;
+	    }
+    }
+
+    button[disabled] {
+    	//Por defecto es 0.4, pero no se nota que es un botón deshabilitado
+    	opacity: 0.6 !important;
+    }
+
 }

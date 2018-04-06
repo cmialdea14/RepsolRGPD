@@ -35,3 +35,37 @@ ion-icon {
     }
     
 }
+
+//Definimos los tipos de letra de REPSOL y los utilizamos en toda la app
+//Cambiando en theme/variables.css las variables $font-family-base y $font-family-ios-base
+@font-face {
+    font-family: "Repsol";
+    src: url("../assets/fonts/Repsol/Repsol-Regular.ttf") format('truetype');
+}
+@font-face {
+    font-family: "Repsol";
+    src: url("../assets/fonts/Repsol/Repsol-Bold.ttf") format('truetype');
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Repsol";
+    src: url("../assets/fonts/Repsol/Repsol-Light.ttf") format('truetype');
+    font-weight: lighter;
+}
+@font-face {
+    font-family: "Repsol";
+    src: url("../assets/fonts/Repsol/Repsol-Italic.ttf") format('truetype');
+    font-style: italic;
+}
+@font-face {
+    font-family: "Repsol";
+    src: url("../assets/fonts/Repsol/Repsol-Bold Italic.ttf") format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Repsol";
+    src: url("../assets/fonts/Repsol/Repsol-Light Italic.ttf") format('truetype');
+    font-weight: lighter;
+    font-style: italic;
+}

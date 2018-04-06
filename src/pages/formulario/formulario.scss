@@ -10,7 +10,7 @@ page-formulario {
 
 	.card p{
 		color: #6B5D54;
-		font-style: italic
+		font-style: italic;
 	}
 
 	.titleForm{
@@ -24,6 +24,8 @@ page-formulario {
 
 	ion-input{
 		color: #091742;
+		//Para no tener que hacer scroll
+		height: 30px;
 	}
 
 	ion-label{

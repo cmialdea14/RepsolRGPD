@@ -22,6 +22,13 @@ $app-direction: ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
+//Cambio tipos de letra a tipo REPSOL
+
+$font-family-base: 'Repsol';
+$font-family-ios-base: 'Repsol';
+$font-family-md-base: "Repsol";
+$font-family-wp-base: "Repsol";
+
 //Cambio color fondo tab
 $tabs-background: #FE8200;
 //Cambio color iconos tab
@@ -61,7 +68,7 @@ $colors: (
   primary:    #FE8200,//naranja
   secondary:  #091742,//azul oscuro
   danger:     #DA1B2F,//rojo
-  light:      #6B5D54,//gris
+  light:      #f4f4f4,//#6B5D54,//gris
   dark:       #222,
   colorTab: (
   	base:	#6B5D54,//naranja
