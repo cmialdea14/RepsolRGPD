@@ -26,7 +26,7 @@ page-pdf {
 	}
 
 	.documento{
-		margin: 0px 50px 30px 50px;
+		margin: 0px 70px 30px 70px;
 		padding: 20px;
 		//https://www.cssmatic.com/box-shadow
 		box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
@@ -76,7 +76,7 @@ page-pdf {
 		display: flex;
 	    flex-direction: row;
 	    margin: 0px auto;
-	    width: 46%;
+	    width: 43%;
 
 	    img {
 	    	display: block;
@@ -86,6 +86,7 @@ page-pdf {
 		  	max-height: 136px;
 		  	width: 180px;
 		  	height: auto;
+		  	margin-right: 4px;
 	    }
     }
 

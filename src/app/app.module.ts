@@ -94,7 +94,7 @@ export function createTranslateLoader(http: HttpClient) {
     SplashScreen,
     File,
     FileOpener,
-    Camera,
+    {provide: Camera,useClass: CameraMock},
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
