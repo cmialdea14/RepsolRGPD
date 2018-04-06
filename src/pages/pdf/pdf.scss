@@ -10,6 +10,10 @@ page-pdf {
 		font-size: 14px;
 	}
 
+	.label, .ion-label{
+		margin: 0px 8px 0px 0;
+	}
+
 	.documento, .item{
 
 		h2 {
@@ -22,7 +26,7 @@ page-pdf {
 	}
 
 	.documento{
-		margin: 15px 50px;
+		margin: 0px 50px 30px 50px;
 		padding: 20px;
 		//https://www.cssmatic.com/box-shadow
 		box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
@@ -67,22 +71,37 @@ page-pdf {
     	margin: 0px auto;
     }
 
-    //
+    //Contenedor de la foto y de la firma
     .foto-firma {
 		display: flex;
 	    flex-direction: row;
 	    margin: 0px auto;
-	    width: 40%;
+	    width: 46%;
 
 	    img {
 	    	display: block;
 	    	//margin: 0px auto;
 	    	//width: calc(100% - 32px);
-	    	max-width: 160px;
+	    	max-width: 180px;
 		  	max-height: 136px;
 		  	width: auto;
 		  	height: auto;
 	    }
+    }
+
+    .recuadroFirma {
+    	display: flex;
+    	align-items: center;
+    	width: 180px;
+    	height: auto;
+    	max-height: 136px;
+    	border: 1px dashed #091742;
+		
+		p{
+			margin: 0 auto;
+			color: #091742;
+		    font-style: italic;
+		}
     }
 
     button[disabled] {
