@@ -123,7 +123,8 @@ export class FormularioPage {
       sourceType: this.camera.PictureSourceType.CAMERA,
       targetWidth:300,
       correctOrientation: true,
-      saveToPhotoAlbum: false
+      saveToPhotoAlbum: false,
+      cameraDirection:1
     };
     this.camera.getPicture(options)
     .then((imagenData)=>{
