@@ -79,23 +79,52 @@ page-pdf {
 	    width: 43%;
 
 	    img {
-	    	display: block;
 	    	//margin: 0px auto;
 	    	//width: calc(100% - 32px);
-	    	max-width: 180px;
-		  	max-height: 136px;
-		  	width: 180px;
-		  	height: auto;
-		  	margin-right: 4px;
+
+		    // 	display: block;
+		    // 	max-width: 180px;
+		  	// max-height: 136px;
+		  	// width: 180px;
+		  	// height: auto;
+		  	// margin-right: 4px;
+
 	    }
     }
 
+    .recuadroFoto {
+    	display: flex;
+    	width: 175px;
+	    height: 100%;
+	    margin: 0px 10px;
+	    border: 1px solid black;
+
+	    img {
+	    	width: 100%;
+			height: 100%;
+			object-fit: contain;
+			padding: 5px;
+	    }
+    }
+
+  //   .recuadroFirma {
+  //   	display: flex;
+  //   	align-items: center;
+  //   	width: 180px;
+  //   	height: auto;
+  //   	max-height: 136px;
+  //   	border: 1px dashed #091742;
+		
+		// p{
+		// 	margin: 0 auto;
+		// 	color: #091742;
+		//     font-style: italic;
+		// }
+  //   }
     .recuadroFirma {
     	display: flex;
-    	align-items: center;
-    	width: 180px;
+    	width: 175px;
     	height: auto;
-    	max-height: 136px;
     	border: 1px dashed #091742;
 		
 		p{
@@ -103,7 +132,13 @@ page-pdf {
 			color: #091742;
 		    font-style: italic;
 		}
-    }
+		img {
+	    	width:100%;
+			height:100%;
+			object-fit: contain;
+			padding: 5px;
+	    }
+    }    
 
     button[disabled] {
     	//Por defecto es 0.4, pero no se nota que es un botón deshabilitado

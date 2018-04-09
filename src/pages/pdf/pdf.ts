@@ -207,6 +207,22 @@ export class PdfPage {
       // On a browser simply use download!
       this.pdfObj.download();
     }
+
+    //Volvemos a la página de inicio después de descargar el pdf
+    //Generamos un mensaje de alerta, para indicar que se ha finalizado el proceso
+    let alert = this.alertCtrl.create({
+      title: "RGPD Enviada",
+      subTitle: "Dirijase al mostrador para recoger su tarjeta de acceso"
+    });
+    alert.present();
+
+    setTimeout(()=>{
+      //Ocultamos alerta y redirigimos
+      alert.dismiss();
+      this.navCtrl.setRoot(TabsPage);
+      this.navCtrl.popToRoot();
+    },6000)//5 Segundos
+
   }
 
   openSignatureModel(){

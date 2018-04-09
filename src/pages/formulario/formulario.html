@@ -19,9 +19,9 @@
 	  <ion-card-title text-center>
 	      {{ 'Foto' | translate }}
 	  </ion-card-title>
-	  <ion-item class="itemFoto">
+	  <div class="itemFoto">
 	  	<img *ngIf="foto" [src]="foto"/>
-	  </ion-item>
+	  </div>
 	  <ion-card-content>		
 		<button ion-button type="button" block small (click)="capturarFoto()">{{ 'BotonFoto' | translate }}</button>
 		<p text-center *ngIf="!fotoCapturada">{{ 'TextoInfoFoto' | translate }}</p>

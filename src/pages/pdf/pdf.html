@@ -30,13 +30,23 @@ I<!--
 		<p>{{textoPdf.p1}}</p>
 		<p>{{textoPdf.p2}}</p>
 	</div>
+
 	<div class="foto-firma">
+		<div class="recuadroFoto">
+			<img *ngIf="fotoFormulario" [src]="fotoFormulario"/>
+		</div>
+		<div class="recuadroFirma" >
+			<p *ngIf="!signature">Firma</p>
+			<img *ngIf="signature" [src]="signature"/>
+		</div>
+	</div>	
+<!-- 	<div class="foto-firma">
 		<img *ngIf="fotoFormulario" [src]="fotoFormulario"/>
 		<img *ngIf="signature" [src]="signature"/>
 		<div class="recuadroFirma" *ngIf="!signature">
 			<p>Firma</p>
 		</div>
-	</div>
+	</div> -->
 
 	<div class="instruccion">
 		<h4 *ngIf="!signature">{{ 'TextoInstruccionSinFirma' | translate }}</h4>
