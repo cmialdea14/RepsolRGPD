@@ -205,7 +205,7 @@ export class PdfPage {
           this.fileOpener.open(this.file.dataDirectory + 'rgpd.pdf', 'application/pdf');
         }).then(()=>{
           //Si ha guardado conectamos ftp
-          this.fTP.connect('10.102.197.168', 'ionic', '1234')
+          this.fTP.connect('192.168.1.121', 'ionic', '1234')
           .then((res: any) => {
 
             console.log('Login successful', res);
