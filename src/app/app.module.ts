@@ -31,6 +31,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 
+//Importamos ftp client
+import { FTP } from '@ionic-native/ftp';
 //Importamos la camara
 import { Camera, CameraOptions } from '@ionic-native/camera';
 // Emulamos la cámara para el desarrollo
@@ -79,7 +81,8 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })
+    }),
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -96,7 +99,8 @@ export function createTranslateLoader(http: HttpClient) {
     SplashScreen,
     File,
     FileOpener,
-    Camera,
+    FTP,
+    {provide: Camera,useClass: CameraMock},
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

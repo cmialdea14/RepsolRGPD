@@ -21,6 +21,8 @@ import { Storage } from '@ionic/storage';
 
 //Importamos el provider de alertas
 import { AlertController } from 'ionic-angular';
+//Importamos el provider ftp client
+import { FTP } from '@ionic-native/ftp';
 
 /**
  * Generated class for the PdfPage page.
@@ -53,7 +55,7 @@ export class PdfPage {
   pdfObj = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private plt: Platform, private file: File, private fileOpener: FileOpener, public modalController: ModalController,
-    public viewController: ViewController,private translateService: TranslateService, private storage: Storage, public alertCtrl: AlertController) {
+    public viewController: ViewController,private translateService: TranslateService, private storage: Storage, public alertCtrl: AlertController, private fTP: FTP) {
   	//Guardamos en nuestra variable los datos del formulario
       this.storage.get('datosFormulario').then((value) => {
       this.datosFormulario = value;
@@ -198,10 +200,43 @@ export class PdfPage {
         var blob = new Blob([buffer], { type: 'application/pdf' });
  
         // Save the PDF to the data Directory of our App
-        this.file.writeFile(this.file.dataDirectory, 'myletter.pdf', blob, { replace: true }).then(fileEntry => {
+        this.file.writeFile(this.file.dataDirectory, 'rgpd.pdf', blob, { replace: true }).then(fileEntry => {
           // Open the PDf with the correct OS tools
-          this.fileOpener.open(this.file.dataDirectory + 'myletter.pdf', 'application/pdf');
-        })
+          this.fileOpener.open(this.file.dataDirectory + 'rgpd.pdf', 'application/pdf');
+        }).then(()=>{
+          //Si ha guardado conectamos ftp
+          this.fTP.connect('10.102.197.168', 'ionic', '1234')
+          .then((res: any) => {
+
+            console.log('Login successful', res);
+            let alert1 = this.alertCtrl.create({
+              title: "RGPD Por enviar",
+              subTitle: "Conexión correcta ftp fichero"
+            });
+            alert1.present();  
+            this.fTP.upload(this.file.dataDirectory + 'rgpd.pdf','C:/Program Files (x86)/freeFTPd/ftproot');
+
+           })
+          .catch((error: any) => {
+
+            console.error(error);
+            let alert2 = this.alertCtrl.create({
+              title: "RGPD NO Enviada",
+              subTitle: "ERROR Conexión ftp fichero"
+            });
+            alert2.present();    
+
+          });
+        }).catch((error: any) => {
+
+            console.error(error);
+            let alert3 = this.alertCtrl.create({
+              title: "RGPD NO Enviada",
+              subTitle: "ERROR Creando fichero"
+            });
+            alert3.present();   
+
+          });
       });
     } else {
       // On a browser simply use download!

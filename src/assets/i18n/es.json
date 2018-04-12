@@ -27,9 +27,11 @@
   "AlertTimeOutTitle":"Advertencia",
   "AlertTimeOutSubtitle":"Lo sentimos, su tiempo ha finalizado, puede comenzar de nuevo si lo desea.",
   "ToastFirmado":"Firmado correctamente",
+  "ToastNoFirmado":"No ha firmado correctamente",
   "ToastErrorFoto": "Impossible to take the photo",
 
   "TituloNavBarRGPD":"RGPD",
+  "TituloPad":"Pad de Firma",
   "TituloDocumento":"Ley Protección de Datos",
   "TextoInstruccionLectura1":"El siguiente texto, es la nueva ley de protección de datos, necesitamos su consentimiento para que pueda acceder al edificio.",
   "TextoInstruccionLectura2":"Por favor, lea atentamente su contenido",

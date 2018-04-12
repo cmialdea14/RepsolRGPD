@@ -14,16 +14,18 @@
 
 
 <ion-content padding>
-		
+		<div>
+			<h2>{{ 'TituloPad' | translate }}</h2>
+		</div>
+		<div class="boli">
+			<img src="/assets/imgs/boliRepsol3.jpg">
+		</div>		
+
 		<div class="infoFirma">{{ 'TextoInfoFirma' | translate }}</div>
+		<div class="colPad" [ngClass]="{'drawing-active': isDrawing}">
+			<signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+		</div>
 		<ion-grid>
-			<ion-row [ngClass]="{'drawing-active': isDrawing}">
-				<ion-col col-4></ion-col>
-				<ion-col col-4>
-		  			<signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
-				</ion-col>
-				<ion-col col-4></ion-col>
-			</ion-row>
 			<ion-row>
 				<ion-col col-4>
 					<button ion-button full color="danger" (click)="cancelPad()">{{ 'BotonCancelar' | translate }}</button>

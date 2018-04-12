@@ -29,11 +29,11 @@ export class PadFirmaPage {
 
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
   private signaturePadOptions: Object = { // Check out https://github.com/szimek/signature_pad
-    'minWidth': 2,
-    'width': '100%',
-    'height': 'auto',
+    'minWidth': 2,//anchura trazo
+    'canvasWidth': 600,
+    'canvasHeight': 460,
     'backgroundColor': '#FFFFFF',
-    'penColor': '#000000'
+    'penColor': '#091742'//'#000000'
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public toastCtrl: ToastController,
@@ -62,7 +62,8 @@ export class PadFirmaPage {
   }  
 
   drawComplete() {
-    this.isDrawing = false;
+    //No hacemos nada al terminar cada trazo
+    //this.isDrawing = false;
   }
  
   drawStart() {
@@ -70,22 +71,36 @@ export class PadFirmaPage {
   }
  
   savePad() {
-    this.signature = this.signaturePad.toDataURL();
-    //Guardamos la firma en el local Storage
-    this.storage.set('signature', this.signature);
-    //Limpiamos el pad
-    this.signaturePad.clear();
-    //Creamos mensaje de aviso
-    let toastFirmado;
-    this.translateService.get('ToastFirmado').subscribe(value => {
-      toastFirmado = value;
-    });
-    let toast = this.toastCtrl.create({
-      message: toastFirmado,
-      duration: 3000
-    });
-    toast.present();
-
+    if(this.isDrawing){
+      this.signature = this.signaturePad.toDataURL();
+      //Guardamos la firma en el local Storage
+      this.storage.set('signature', this.signature);
+      //Limpiamos el pad
+      this.signaturePad.clear();
+      //Creamos mensaje de aviso
+      let toastFirmado;
+      this.translateService.get('ToastFirmado').subscribe(value => {
+        toastFirmado = value;
+      });
+      let toast = this.toastCtrl.create({
+        message: toastFirmado,
+        duration: 3000
+      });
+      toast.present();
+    }else{
+      //Limpiamos el pad
+      this.signaturePad.clear();
+      //Creamos mensaje de aviso
+      let toastNoFirmado;
+      this.translateService.get('ToastNoFirmado').subscribe(value => {
+        toastNoFirmado = value;
+      });
+      let toast = this.toastCtrl.create({
+        message: toastNoFirmado,
+        duration: 3000
+      });
+      toast.present();
+    }
     //Quitamos la página de la pila del navegador de páginas 
     this.navCtrl.pop();
     

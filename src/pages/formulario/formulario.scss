@@ -56,4 +56,16 @@ page-formulario {
 		color: #00859B;
 		margin-left: 15px;
 	}
+
+	.nextButton{
+		margin: 10px auto;
+	    display: flex;
+	    width: 40%;
+	}
+
+	button[disabled] {
+    	//Por defecto es 0.4, pero no se nota que es un botón deshabilitado
+    	opacity: 0.2 !important;
+    }
+
 }

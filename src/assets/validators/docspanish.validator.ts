@@ -33,7 +33,8 @@ export class DocSpanishValidator {
   //metodo que comprueba si es un email válido
   static notValidEmail(fc: FormControl){
 
-	var emailRexp = /^[\w]+@{1}[\w]+\.+[a-z]{2,3}$/i;
+	//var emailRexp = /^[\w]+@{1}[\w]+\.+[a-z]{2,3}$/i;
+	var emailRexp = /^(?=[^@]{4,}@)([\w\.-]*[a-zA-Z0-9_]@(?=.{4,}\.[^.]*$)[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z])$/i;
 	var str = fc.value.toString().toUpperCase();
 
     if(str){

@@ -80,9 +80,7 @@
 			<div class="validator-error" *ngIf="formularioAcceso.controls.email.hasError('notValidEmail')">
 				  {{ 'ValidacionEmail' | translate }}
 			</div>			
-			<ion-item>
-				<button ion-button type="submit" block large>{{ 'BotonSiguiente' | translate }}</button>
-			</ion-item>
+			<button class="nextButton" ion-button type="submit" color="secondary" [disabled]="!fotoCapturada">{{ 'BotonSiguiente' | translate }}</button>
 
 		</ion-list>
 
