@@ -217,8 +217,8 @@ export class PdfPage {
 
         console.error(error);
         let alert2 = this.alertCtrl.create({
-          title: "RGPD NO Enviada",
-          subTitle: "ERROR Conexión ftp fichero"
+          title: "ERROR Conexión ftp fichero",
+          subTitle: error
         });
         alert2.present();    
         setTimeout(()=>{
