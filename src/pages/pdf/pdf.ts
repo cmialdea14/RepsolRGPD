@@ -196,47 +196,36 @@ export class PdfPage {
 
   downloadPdf() {
     if (this.plt.is('cordova')) {
-      this.pdfObj.getBuffer((buffer) => {
-        var blob = new Blob([buffer], { type: 'application/pdf' });
- 
-        // Save the PDF to the data Directory of our App
-        this.file.writeFile(this.file.dataDirectory, 'rgpd.pdf', blob, { replace: true }).then(fileEntry => {
-          // Open the PDf with the correct OS tools
-          this.fileOpener.open(this.file.dataDirectory + 'rgpd.pdf', 'application/pdf');
-        }).then(()=>{
-          //Si ha guardado conectamos ftp
-          this.fTP.connect('192.168.1.121', 'ionic', '1234')
-          .then((res: any) => {
 
-            console.log('Login successful', res);
-            let alert1 = this.alertCtrl.create({
-              title: "RGPD Por enviar",
-              subTitle: "Conexión correcta ftp fichero"
-            });
-            alert1.present();  
-            this.fTP.upload(this.file.dataDirectory + 'rgpd.pdf','C:/Program Files (x86)/freeFTPd/ftproot');
+      //Si ha guardado conectamos ftp
+      this.fTP.connect('192.168.1.121', 'ionic', '1234')
+      .then((res: any) => {
 
-           })
-          .catch((error: any) => {
+        console.log('Login successful', res);
+        let alert1 = this.alertCtrl.create({
+          title: "RGPD Por enviar",
+          subTitle: "Conexión correcta ftp fichero"
+        });
+        alert1.present();  
+        //this.fTP.upload(this.file.dataDirectory + 'rgpd.pdf','C:/Program Files (x86)/freeFTPd/ftproot');
+        setTimeout(()=>{
+          //Ocultamos alerta
+          alert1.dismiss();
+        },6000)//5 Segundos   
+       })
+      .catch((error: any) => {
 
-            console.error(error);
-            let alert2 = this.alertCtrl.create({
-              title: "RGPD NO Enviada",
-              subTitle: "ERROR Conexión ftp fichero"
-            });
-            alert2.present();    
+        console.error(error);
+        let alert2 = this.alertCtrl.create({
+          title: "RGPD NO Enviada",
+          subTitle: "ERROR Conexión ftp fichero"
+        });
+        alert2.present();    
+        setTimeout(()=>{
+          //Ocultamos alerta
+          alert2.dismiss();
+        },6000)//5 Segundos        
 
-          });
-        }).catch((error: any) => {
-
-            console.error(error);
-            let alert3 = this.alertCtrl.create({
-              title: "RGPD NO Enviada",
-              subTitle: "ERROR Creando fichero"
-            });
-            alert3.present();   
-
-          });
       });
     } else {
       // On a browser simply use download!
@@ -245,15 +234,15 @@ export class PdfPage {
 
     //Volvemos a la página de inicio después de descargar el pdf
     //Generamos un mensaje de alerta, para indicar que se ha finalizado el proceso
-    let alert = this.alertCtrl.create({
-      title: "RGPD Enviada",
-      subTitle: "Dirijase al mostrador para recoger su tarjeta de acceso"
-    });
-    alert.present();
+    // let alert = this.alertCtrl.create({
+    //   title: "RGPD Enviada",
+    //   subTitle: "Dirijase al mostrador para recoger su tarjeta de acceso"
+    // });
+    // alert.present();
 
     setTimeout(()=>{
       //Ocultamos alerta y redirigimos
-      alert.dismiss();
+      //alert.dismiss();
       this.navCtrl.setRoot(TabsPage);
       this.navCtrl.popToRoot();
     },6000)//5 Segundos
