@@ -229,6 +229,7 @@ export class PdfPage {
     } else {
       //Prueba email
       let email = {
+        app: 'mailto',
         to: 'cmialdeatelco@gmail.com',
         subject: 'Prueba email ionic',
         body: 'Ionic framework',
