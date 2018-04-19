@@ -253,7 +253,7 @@ export class PdfPage {
         console.log(err);
         let alert3 = this.alertCtrl.create({
           title: "ERROR enviando correo",
-          subTitle: error
+          subTitle: err
         });
         alert3.present();    
         setTimeout(()=>{
