@@ -21,9 +21,8 @@ import { Storage } from '@ionic/storage';
 
 //Importamos el provider de alertas
 import { AlertController } from 'ionic-angular';
-//Importamos el provider ftp client
-import { FTP } from '@ionic-native/ftp';
-
+//Importamos el email composer
+import { EmailComposer } from '@ionic-native/email-composer';
 /**
  * Generated class for the PdfPage page.
  *
@@ -55,7 +54,7 @@ export class PdfPage {
   pdfObj = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private plt: Platform, private file: File, private fileOpener: FileOpener, public modalController: ModalController,
-    public viewController: ViewController,private translateService: TranslateService, private storage: Storage, public alertCtrl: AlertController, private fTP: FTP) {
+    public viewController: ViewController,private translateService: TranslateService, private storage: Storage, public alertCtrl: AlertController, private emailComposer: EmailComposer) {
   	//Guardamos en nuestra variable los datos del formulario
       this.storage.get('datosFormulario').then((value) => {
       this.datosFormulario = value;
@@ -198,38 +197,55 @@ export class PdfPage {
     if (this.plt.is('cordova')) {
 
       //Si ha guardado conectamos ftp
-      this.fTP.connect('192.168.1.121', 'ionic', '1234')
-      .then((res: any) => {
 
-        console.log('Login successful', res);
-        let alert1 = this.alertCtrl.create({
-          title: "RGPD Por enviar",
-          subTitle: "Conexión correcta ftp fichero"
-        });
-        alert1.present();  
-        //this.fTP.upload(this.file.dataDirectory + 'rgpd.pdf','C:/Program Files (x86)/freeFTPd/ftproot');
-        setTimeout(()=>{
-          //Ocultamos alerta
-          alert1.dismiss();
-        },6000)//5 Segundos   
-       })
-      .catch((error: any) => {
+      // .then((res: any) => {
 
-        console.error(error);
-        let alert2 = this.alertCtrl.create({
-          title: "ERROR Conexión ftp fichero",
-          subTitle: error
-        });
-        alert2.present();    
-        setTimeout(()=>{
-          //Ocultamos alerta
-          alert2.dismiss();
-        },6000)//5 Segundos        
+      //   console.log('Login successful', res);
+      //   let alert1 = this.alertCtrl.create({
+      //     title: "RGPD Por enviar",
+      //     subTitle: "Conexión correcta ftp fichero"
+      //   });
+      //   alert1.present();  
+      //   //this.fTP.upload(this.file.dataDirectory + 'rgpd.pdf','C:/Program Files (x86)/freeFTPd/ftproot');
+      //   setTimeout(()=>{
+      //     //Ocultamos alerta
+      //     alert1.dismiss();
+      //   },6000)//5 Segundos   
+      //  })
+      // .catch((error: any) => {
 
-      });
+      //   console.error(error);
+      //   let alert2 = this.alertCtrl.create({
+      //     title: "ERROR Conexión ftp fichero",
+      //     subTitle: error
+      //   });
+      //   alert2.present();    
+      //   setTimeout(()=>{
+      //     //Ocultamos alerta
+      //     alert2.dismiss();
+      //   },6000)//5 Segundos        
+
+      // });
     } else {
+      //Prueba email
+      let email = {
+        to: 'cmialdeatelco@gmail.com',
+        subject: 'Prueba email ionic',
+        body: 'Ionic framework',
+        isHtml: false
+      };      
+
+      this.emailComposer.open(email)
+      .then(()=>{
+        console.log("correo enviado");
+      })
+      .catch((err)=>{
+        console.log("error enviando email");
+        console.log(err);
+      });
+
       // On a browser simply use download!
-      this.pdfObj.download();
+      //this.pdfObj.download();
     }
 
     //Volvemos a la página de inicio después de descargar el pdf

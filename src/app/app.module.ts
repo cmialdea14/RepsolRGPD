@@ -31,8 +31,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 
-//Importamos ftp client
-import { FTP } from '@ionic-native/ftp';
+//Importamos email composer
+import { EmailComposer } from '@ionic-native/email-composer';
 //Importamos la camara
 import { Camera, CameraOptions } from '@ionic-native/camera';
 // Emulamos la cámara para el desarrollo
@@ -99,7 +99,7 @@ export function createTranslateLoader(http: HttpClient) {
     SplashScreen,
     File,
     FileOpener,
-    FTP,
+    EmailComposer,
     {provide: Camera,useClass: CameraMock},
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
