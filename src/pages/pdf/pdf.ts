@@ -197,7 +197,6 @@ export class PdfPage {
     if (this.plt.is('cordova')) {
 
       let email = {
-        app: 'mailto',
         to: 'cmialdeatelco@gmail.com',
         subject: 'Prueba email ionic',
         body: 'Ionic framework',
