@@ -238,10 +238,28 @@ export class PdfPage {
       this.emailComposer.open(email)
       .then(()=>{
         console.log("correo enviado");
+        let alert2 = this.alertCtrl.create({
+          title: "Correo enviado",
+          subTitle: "Funcionando..."
+        });
+        alert2.present();    
+        setTimeout(()=>{
+          //Ocultamos alerta
+          alert2.dismiss();
+        },6000)//5 Segundos            
       })
       .catch((err)=>{
         console.log("error enviando email");
         console.log(err);
+        let alert3 = this.alertCtrl.create({
+          title: "ERROR enviando correo",
+          subTitle: error
+        });
+        alert3.present();    
+        setTimeout(()=>{
+          //Ocultamos alerta
+          alert3.dismiss();
+        },6000)//5 Segundos        
       });
 
       // On a browser simply use download!
