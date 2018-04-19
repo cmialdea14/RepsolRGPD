@@ -196,38 +196,6 @@ export class PdfPage {
   downloadPdf() {
     if (this.plt.is('cordova')) {
 
-      //Si ha guardado conectamos ftp
-
-      // .then((res: any) => {
-
-      //   console.log('Login successful', res);
-      //   let alert1 = this.alertCtrl.create({
-      //     title: "RGPD Por enviar",
-      //     subTitle: "Conexión correcta ftp fichero"
-      //   });
-      //   alert1.present();  
-      //   //this.fTP.upload(this.file.dataDirectory + 'rgpd.pdf','C:/Program Files (x86)/freeFTPd/ftproot');
-      //   setTimeout(()=>{
-      //     //Ocultamos alerta
-      //     alert1.dismiss();
-      //   },6000)//5 Segundos   
-      //  })
-      // .catch((error: any) => {
-
-      //   console.error(error);
-      //   let alert2 = this.alertCtrl.create({
-      //     title: "ERROR Conexión ftp fichero",
-      //     subTitle: error
-      //   });
-      //   alert2.present();    
-      //   setTimeout(()=>{
-      //     //Ocultamos alerta
-      //     alert2.dismiss();
-      //   },6000)//5 Segundos        
-
-      // });
-    } else {
-      //Prueba email
       let email = {
         app: 'mailto',
         to: 'cmialdeatelco@gmail.com',
@@ -261,7 +229,41 @@ export class PdfPage {
           //Ocultamos alerta
           alert3.dismiss();
         },6000)//5 Segundos        
-      });
+      });      
+
+      //Si ha guardado conectamos ftp
+
+      // .then((res: any) => {
+
+      //   console.log('Login successful', res);
+      //   let alert1 = this.alertCtrl.create({
+      //     title: "RGPD Por enviar",
+      //     subTitle: "Conexión correcta ftp fichero"
+      //   });
+      //   alert1.present();  
+      //   //this.fTP.upload(this.file.dataDirectory + 'rgpd.pdf','C:/Program Files (x86)/freeFTPd/ftproot');
+      //   setTimeout(()=>{
+      //     //Ocultamos alerta
+      //     alert1.dismiss();
+      //   },6000)//5 Segundos   
+      //  })
+      // .catch((error: any) => {
+
+      //   console.error(error);
+      //   let alert2 = this.alertCtrl.create({
+      //     title: "ERROR Conexión ftp fichero",
+      //     subTitle: error
+      //   });
+      //   alert2.present();    
+      //   setTimeout(()=>{
+      //     //Ocultamos alerta
+      //     alert2.dismiss();
+      //   },6000)//5 Segundos        
+
+      // });
+    } else {
+      //Prueba email
+
 
       // On a browser simply use download!
       //this.pdfObj.download();
