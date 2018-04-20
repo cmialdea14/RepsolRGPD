@@ -52,6 +52,7 @@ export class PdfPage {
   };
  
   pdfObj = null;
+  pdfBase64 = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private plt: Platform, private file: File, private fileOpener: FileOpener, public modalController: ModalController,
     public viewController: ViewController,private translateService: TranslateService, private storage: Storage, public alertCtrl: AlertController, private emailComposer: EmailComposer) {
@@ -190,6 +191,11 @@ export class PdfPage {
       }
     }
     this.pdfObj = pdfMake.createPdf(docDefinition);
+
+    console.log ('El contenido del pdf: ' + this.pdfObj);
+    this.pdfObj.getBase64((data) => {
+      pdfBase64 = data;
+    });
     //this.openSignatureModel();
   }
 
@@ -198,6 +204,9 @@ export class PdfPage {
 
       let email = {
         to: 'cmialdeatelco@gmail.com',
+        attachments: [
+          'base64:prueba.pdf//' + pdfBase64
+        ],
         subject: 'Prueba email ionic',
         body: 'Ionic framework',
         isHtml: false
