@@ -195,7 +195,7 @@ export class PdfPage {
     console.log ('El contenido del pdf: ' + this.pdfObj);
     this.pdfObj.getBase64((data) => {
       var dataReplace = data.replace("/","_");
-      this.pdfBase64 = 'base64:prueba.pdf//' + dataReplace
+      this.pdfBase64 = 'prueba.pdf//' + dataReplace
     });
     //this.openSignatureModel();
   }
