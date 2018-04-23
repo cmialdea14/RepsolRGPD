@@ -194,8 +194,10 @@ export class PdfPage {
 
     console.log ('El contenido del pdf: ' + this.pdfObj);
     this.pdfObj.getBase64((data) => {
-      var dataReplace = data.replace("/","_");
-      this.pdfBase64 = 'prueba.pdf//' + dataReplace
+      console.log(data);
+      this.pdfBase64 = 'base64:prueba.pdf//' + data
+      console.log(this.pdfBase64);
+
     });
     //this.openSignatureModel();
   }
@@ -206,7 +208,7 @@ export class PdfPage {
       let email = {
         to: 'cmialdeatelco@gmail.com',
         attachments: [
-          'base64:' + this.pdfBase64
+          this.pdfBase64
         ],
         subject: 'Prueba email ionic',
         body: 'Ionic framework',
