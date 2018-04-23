@@ -195,7 +195,8 @@ export class PdfPage {
     console.log ('El contenido del pdf: ' + this.pdfObj);
     this.pdfObj.getBase64((data) => {
       console.log(data);
-      this.pdfBase64 = 'base64:prueba.pdf//' + data
+      var data2 = data.replace('////', '');
+      this.pdfBase64 = 'base64:prueba.pdf//' + data2;
       console.log(this.pdfBase64);
 
     });
