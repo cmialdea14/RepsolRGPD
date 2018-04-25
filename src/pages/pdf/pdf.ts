@@ -295,16 +295,16 @@ export class PdfPage {
   	modal.present();
   }
 
-  blobTopdf(){
-    this.pdfObj.getBlob((data) => {
-      console.log(data);
-      this.pdfBlob = data;
-      var replaceFile:boolean = true;
-      this.file.writeFile(this.file.applicationStorageDirectory,'rgpd.pdf',pdf,replaceFile)
-      .then(()=>{ console.log('Fichero pdf creado') })
-      .catch((err)=>{ console.log('ERROR generando fichero pdf: '+ err) })
-    });
-  }
+  // blobTopdf(){
+  //   this.pdfObj.getBlob((data) => {
+  //     console.log(data);
+  //     this.pdfBlob = data;
+  //     var replaceFile:boolean = true;
+  //     this.file.writeFile(this.file.applicationStorageDirectory,'rgpd.pdf',this.pdfBlob)
+  //     .then(()=>{ console.log('Fichero pdf creado') })
+  //     .catch((err)=>{ console.log('ERROR generando fichero pdf: '+ err) })
+  //   });
+  // }
 
   connectFtpServer(){
 
