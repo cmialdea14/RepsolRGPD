@@ -20,7 +20,6 @@ import { TutorialPageModule } from '../pages/tutorial/tutorial.module';
 
 import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
-import { FileTransfer } from '@ionic-native/file-transfer';
 import { FTP } from '@ionic-native/ftp';
 
 import { SignaturePadModule } from 'angular2-signaturepad';
@@ -103,7 +102,6 @@ export function createTranslateLoader(http: HttpClient) {
     SplashScreen,
     File,
     FileOpener,
-    FileTransfer,
     FTP,
     EmailComposer,
     SocialSharing,

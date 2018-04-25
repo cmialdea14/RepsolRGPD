@@ -7,7 +7,6 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
-import { FileTransfer } from '@ionic-native/file-transfer';
 import { FTP } from '@ionic-native/ftp';
 
 import { PadFirmaPage } from '../pad-firma/pad-firma';
@@ -58,12 +57,10 @@ export class PdfPage {
   pdfObj = null;
   pdfBlob = null;
 
-  //Creamos el fileTransfer
-  fileTransfer: FileTransferObject = this.transfer.create();
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private plt: Platform, private file: File, private fileOpener: FileOpener, public modalController: ModalController,
     public viewController: ViewController,private translateService: TranslateService, private storage: Storage, public alertCtrl: AlertController, private emailComposer: EmailComposer, 
-    private socialSharing: SocialSharing, private transfer: FileTransfer,private fTP: FTP) {
+    private socialSharing: SocialSharing,private fTP: FTP) {
   	//Guardamos en nuestra variable los datos del formulario
       this.storage.get('datosFormulario').then((value) => {
       this.datosFormulario = value;
