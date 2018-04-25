@@ -202,7 +202,7 @@ export class PdfPage {
 
       let email = {
         to: 'cmialdeatelco@gmail.com',
-        attachments: [applicationStorageDirectory+'rgpd.pdf'],
+        attachments: [this.file.applicationStorageDirectory+'rgpd.pdf'],
         subject: 'Prueba email ionic',
         body: 'Ionic framework',
         isHtml: false
