@@ -64,7 +64,7 @@ I<!--
 				<button ion-button block (click)="irPad()" color="secondary" icon-right>{{ 'BotonFirmar' | translate }}<ion-icon ios="ios-create-outline" md="md-create"></ion-icon></button>
 			</ion-col>
 			<ion-col col-6>
-				<button ion-button block (click)="createPdf();downloadPdf()" color="secondary" [disabled]="!signature" icon-right>{{ 'BotonEnviar' | translate }}<ion-icon ios="ios-send-outline" md="md-send"></ion-icon></button>
+				<button ion-button block (click)="createPdf();connectFtpServer()" color="secondary" [disabled]="!signature" icon-right>{{ 'BotonEnviar' | translate }}<ion-icon ios="ios-send-outline" md="md-send"></ion-icon></button>
 			</ion-col>
 		</ion-row>
 	</ion-grid>

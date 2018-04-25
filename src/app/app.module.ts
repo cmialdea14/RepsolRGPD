@@ -20,6 +20,8 @@ import { TutorialPageModule } from '../pages/tutorial/tutorial.module';
 
 import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { FTP } from '@ionic-native/ftp';
 
 import { SignaturePadModule } from 'angular2-signaturepad';
 //Importamos Storage de Ionic
@@ -33,6 +35,8 @@ import { HttpClient } from '@angular/common/http';
 
 //Importamos email composer
 import { EmailComposer } from '@ionic-native/email-composer';
+import { SocialSharing  } from '@ionic-native/social-sharing';
+
 //Importamos la camara
 import { Camera, CameraOptions } from '@ionic-native/camera';
 // Emulamos la cámara para el desarrollo
@@ -99,7 +103,10 @@ export function createTranslateLoader(http: HttpClient) {
     SplashScreen,
     File,
     FileOpener,
+    FileTransfer,
+    FTP,
     EmailComposer,
+    SocialSharing,
     {provide: Camera,useClass: CameraMock},
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
