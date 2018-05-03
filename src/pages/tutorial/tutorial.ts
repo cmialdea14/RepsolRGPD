@@ -4,6 +4,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 //Importamos el Storage
 import { Storage } from '@ionic/storage';
+//Importamos la página del formulario
+import { FormularioPage } from '../formulario/formulario';
+//Importamos el servicio de traducción
+import { TranslateService } from '@ngx-translate/core'
+import { ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the TutorialPage page.
@@ -48,7 +53,7 @@ export class TutorialPage {
 	    },
   	];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private translateService: TranslateService, public viewController: ViewController) {
 
   }
 
@@ -56,11 +61,25 @@ export class TutorialPage {
     console.log('ionViewDidLoad TutorialPage');
   }
 
+    ionViewWillEnter() {
+    //Cambiamos el texto del botón Atrás del NavBar
+    if(this.translateService.currentLang == 'es'){
+      this.viewController.setBackButtonText('Atrás');  
+    }else{
+      this.viewController.setBackButtonText('Back');
+    }   
+
+  }
+
   //Navegamos a la home
   navegarHome(){
   	this.navCtrl.setRoot(TabsPage);
   	//this.navCtrl.popToRoot();
   	this.storage.set('tutoDone', true);
+  }
+
+  irFormAcceso(){
+  	this.navCtrl.push(FormularioPage);
   }
 
 }

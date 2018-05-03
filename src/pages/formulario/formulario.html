@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-	<!--Toma de fotogorafía-->
+	<!--Toma de fotogorafía
 	<ion-card class="cardFoto">
 	  <ion-card-title text-center>
 	      {{ 'Foto' | translate }}
@@ -27,9 +27,15 @@
 		<p text-center *ngIf="!fotoCapturada">{{ 'TextoInfoFoto' | translate }}</p>
 	  </ion-card-content>
 	</ion-card>
-	
+	-->
 	<!--Titulo Formulario-->
 	<h2 class="titleForm">{{ 'TituloForm' | translate }}</h2>
+	<div class="instruccion">
+		<h4>{{ 'TextoInfoFormulario' | translate }}</h4>
+		<div class="personIcon">
+			<ion-icon class="icon-person-group" ios="ios-person-outline" md="md-person"></ion-icon>
+		</div>
+	</div>	
 	<!--Formulario con data driven forms (FORM BUILDER)-->
 	<form class="formulario" [formGroup]="formularioAcceso" (ngSubmit)="enviarForm()">
 		<ion-list>
@@ -69,18 +75,8 @@
 			</div>
 			<div class="validator-error" *ngIf="formularioAcceso.controls.identidad.hasError('notValidNifNiePassport')">
 				  {{ 'ValidacionIdentidad' | translate }}
-			</div>						
-			<ion-item>
-				<ion-label floating>{{ 'Email' | translate }}</ion-label>
-				<ion-input type="email" formControlName="email"></ion-input>
-			</ion-item>
-			<div class="validator-info" *ngIf="formularioAcceso.controls.email.hasError('required')">
-				  {{ 'CampoObligatorio' | translate }}
-			</div>
-			<div class="validator-error" *ngIf="formularioAcceso.controls.email.hasError('notValidEmail')">
-				  {{ 'ValidacionEmail' | translate }}
-			</div>			
-			<button class="nextButton" ion-button type="submit" color="secondary" [disabled]="!fotoCapturada">{{ 'BotonSiguiente' | translate }}</button>
+			</div>							
+			<button class="nextButton" ion-button type="submit" color="secondary" [disabled]="!formularioAcceso.valid">{{ 'BotonSiguiente' | translate }}</button>
 
 		</ion-list>
 

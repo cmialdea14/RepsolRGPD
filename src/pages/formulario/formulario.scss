@@ -68,4 +68,32 @@ page-formulario {
     	opacity: 0.2 !important;
     }
 
+	.instruccion {
+		margin: 15px 0 0 0;
+
+		h4 {
+			font-size: 16px;
+			font-weight: bold;
+			padding: 0 40px;
+		    line-height: 1.5;
+		    color: #60646B;
+		    text-align: center;
+		}
+	}
+
+	.personIcon {
+		width: 40%;
+	    display: flex;
+	    flex-direction: row;
+	    margin: 10px auto;
+	}
+
+	 //icon libro
+    .icon-person-group {
+    	font-size: 60px;
+    	color: #00859B;
+    	display: block;
+    	margin: 0px auto;
+    }   
+
 }

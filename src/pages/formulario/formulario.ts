@@ -37,8 +37,8 @@ import { DocSpanishValidator } from '../../assets/validators/docspanish.validato
 })
 export class FormularioPage {
   //Creamos variable con la imagen capturada 
-  foto;
-  fotoCapturada:boolean = false;
+  // foto;
+  // fotoCapturada:boolean = false;
   tutoDone:boolean;
 
   private formularioAcceso:FormGroup;	
@@ -51,8 +51,7 @@ export class FormularioPage {
   			nombre: new FormControl("",[Validators.required, Validators.pattern("^([A-ZÁÉÍÓÚ]{1}[a-zñáéíó]+[\\s]*)+$")]),
   			apellido1:  new FormControl("",[Validators.required, Validators.pattern("^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\\s]*)+$")]),
   			apellido2:  new FormControl("",[Validators.pattern("^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\\s]*)+$")]),
-        identidad: new FormControl("",Validators.compose([Validators.required, DocSpanishValidator.notValidNifNiePassport])),
-  			email: ["", Validators.compose([Validators.required, DocSpanishValidator.notValidEmail])]
+        identidad: new FormControl("",Validators.compose([Validators.required, DocSpanishValidator.notValidNifNiePassport]))
   		}
   	)
   }
@@ -103,7 +102,7 @@ export class FormularioPage {
   //Enviamos el formulario
   enviarForm(){
     //Guardamos en el Storage fotografía
-    this.storage.set('fotoFormulario',this.foto);
+    //this.storage.set('fotoFormulario',this.foto);
     //Guardamos en el Storage datosFormulario
     this.storage.set('datosFormulario', this.formularioAcceso.value).then((data) => {
       //Vamos a la pantalla pdf
@@ -114,42 +113,42 @@ export class FormularioPage {
   }
 
   //Capturamos foto
-  capturarFoto(){
-    let options:CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      sourceType: this.camera.PictureSourceType.CAMERA,
-      targetWidth:300,
-      correctOrientation: true,
-      saveToPhotoAlbum: false,
-      cameraDirection:1
-    };
-    this.camera.getPicture(options)
-    .then((imagenData)=>{
-      this.foto = 'data:image/jpeg;base64,' + imagenData;
-      //this.foto = 'data:image/png;base64,' + imagenData;
-      this.fotoCapturada = true;
-    })
-    .catch((error)=>{
-      console.log(error);
-      this.fotoCapturada = false;
-      this.mostrarErrorFoto();
-    })
-  }
+  // capturarFoto(){
+  //   let options:CameraOptions = {
+  //     quality: 100,
+  //     destinationType: this.camera.DestinationType.DATA_URL,
+  //     encodingType: this.camera.EncodingType.JPEG,
+  //     mediaType: this.camera.MediaType.PICTURE,
+  //     sourceType: this.camera.PictureSourceType.CAMERA,
+  //     targetWidth:300,
+  //     correctOrientation: true,
+  //     saveToPhotoAlbum: false,
+  //     cameraDirection:1
+  //   };
+  //   this.camera.getPicture(options)
+  //   .then((imagenData)=>{
+  //     this.foto = 'data:image/jpeg;base64,' + imagenData;
+  //     //this.foto = 'data:image/png;base64,' + imagenData;
+  //     this.fotoCapturada = true;
+  //   })
+  //   .catch((error)=>{
+  //     console.log(error);
+  //     this.fotoCapturada = false;
+  //     this.mostrarErrorFoto();
+  //   })
+  // }
 
-  mostrarErrorFoto(){
-    //Creamos mensaje de aviso
-    let toastErrorFoto;
-    this.translateService.get('ToastErrorFoto').subscribe(value => {
-      toastErrorFoto = value;
-    });
-    let toast = this.toastCtrl.create({
-      message: toastErrorFoto,
-      duration: 3000
-    });
-    toast.present();
-  }
+  // mostrarErrorFoto(){
+  //   //Creamos mensaje de aviso
+  //   let toastErrorFoto;
+  //   this.translateService.get('ToastErrorFoto').subscribe(value => {
+  //     toastErrorFoto = value;
+  //   });
+  //   let toast = this.toastCtrl.create({
+  //     message: toastErrorFoto,
+  //     duration: 3000
+  //   });
+  //   toast.present();
+  // }
 
 }

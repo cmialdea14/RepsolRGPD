@@ -47,7 +47,7 @@ export class PdfPage {
   //Creamos variable para guardar la firma
   signature
   //Creamos variable para guardar la fotografía
-  fotoFormulario
+  //fotoFormulario
   //Creamos las variables para el formulario
   textoPdf = {
   	p1: '',
@@ -104,9 +104,9 @@ export class PdfPage {
 
   ionViewWillEnter() {
     //Obtenemos la fotografía, al entrar en la página, pero antes de ser cargada
-    this.storage.get('fotoFormulario').then((value) => {
-      this.fotoFormulario = value;
-    })
+    // this.storage.get('fotoFormulario').then((value) => {
+    //   this.fotoFormulario = value;
+    // })
     //Obtenemos la firma, en caso de existir, al entrar en la página, pero antes de ser cargada
     this.storage.get('signature').then((value) => {
       this.signature = value;
@@ -158,7 +158,6 @@ export class PdfPage {
         }
       }
     }else{
-      console.log(this.fotoFormulario);
       // var firma = new Image;
       // firma = this.signature.replace(/^data:image\/(png|jpg);base64,/, "");
 
@@ -167,7 +166,6 @@ export class PdfPage {
           { text: 'Nueva LOPD Mayo 2018', style: 'header' },
           { text: this.textoPdf.p1, style: 'subheader' },
           { text: this.textoPdf.p2, style: 'story', margin: [0, 20, 0, 20] },
-          { image: this.fotoFormulario, alignment: 'center', width: 100 },
           { image: 'firma', alignment: 'center', width: 100 },
           { text: new Date().toLocaleDateString(), alignment: 'right' }
         ],
@@ -198,42 +196,7 @@ export class PdfPage {
 
   }
 
-  downloadPdf() {
-
-      let email = {
-        to: 'cmialdeatelco@gmail.com',
-        attachments: [this.file.applicationStorageDirectory+'rgpd.pdf'],
-        subject: 'Prueba email ionic',
-        body: 'Ionic framework',
-        isHtml: false
-      };      
-
-      this.emailComposer.open(email)
-      .then(()=>{
-        console.log("correo enviado");
-        let alert2 = this.alertCtrl.create({
-          title: "Correo enviado",
-          subTitle: "Funcionando..."
-        });
-        alert2.present();    
-        setTimeout(()=>{
-          //Ocultamos alerta
-          alert2.dismiss();
-        },6000)//5 Segundos            
-      })
-      .catch((err)=>{
-        console.log("error enviando email");
-        console.log(err);
-        let alert3 = this.alertCtrl.create({
-          title: "ERROR enviando correo",
-          subTitle: err
-        });
-        alert3.present();    
-        setTimeout(()=>{
-          //Ocultamos alerta
-          alert3.dismiss();
-        },6000)//5 Segundos        
-      });      
+  downloadPdf() {  
 
       //Si ha guardado conectamos ftp
 

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Tutorial</ion-title>
+    <ion-title>{{ 'TituloNavBarTuto' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,23 +15,13 @@
 
 <ion-content padding>
 
-  <ion-slides pager="true">
-    <ion-slide *ngFor="let slide of slides">
-        <ion-buttons end>
-          <button ion-button color="danger" (click)="navegarHome()">Omitir</button>
-        </ion-buttons>
-      <img [src]="slide.image" class="slide-image"/>
-      <h1 class="slide-title" [innerHTML]="slide.title"></h1>
-      <p [innerHTML]="slide.description"></p>
-      <ion-icon *ngIf="slide.icon" [name]="slide.icon"></ion-icon>
-    </ion-slide>
+  <ion-slides pager="false">
     <ion-slide>
-      <img src="assets/imgs/marquez.jpg" class="slide-image"/>
-      <h1 class="slide-title">¡Comenzamos!</h1>
-      <button ion-button large clear icon-end color="primary" (click)="navegarHome()">
-        Go!!
-        <ion-icon name="thumbs-up"></ion-icon>
-      </button>
+      <img src="/assets/imgs/repsol.jpg" class="slide-image"/>
+      <h1 class="slide-title">{{ 'TituloTuto' | translate }}</h1>
+      <ion-icon ios="ios-information-circle-outline" md="md-information-circle"></ion-icon>
+      <p>{{ 'TextoTuto1' | translate }}<b>{{ 'TextoTuto2' | translate }}</b>{{ 'TextoTuto3' | translate }}<b>{{ 'TextoTuto4' | translate }}</b>. <br/> <br/>{{ 'TextoTuto5' | translate }}</p>
+      <button ion-button large icon-end color="primary" (click)="irFormAcceso()">{{ 'BotonSiguiente' | translate }}</button>
     </ion-slide>
   </ion-slides>
 
