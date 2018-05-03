@@ -1,6 +1,6 @@
 {
-  "name": "PdfCreator",
-  "app_id": "dd027223",
+  "name": "RepsolRGPD",
+  "app_id": "b2d6ce12",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

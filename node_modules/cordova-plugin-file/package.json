@@ -10,7 +10,7 @@
         "spec": "6.0.1",
         "type": "version"
       },
-      "C:\\Users\\cmialdea\\IonicWorkspace\\AplicacionesIonic\\PdfCreator"
+      "C:\\Users\\cmialdea\\IonicWorkspace\\AplicacionesIonic\\RepsolRGPD"
     ]
   ],
   "_from": "cordova-plugin-file@6.0.1",
@@ -45,7 +45,7 @@
   "_shasum": "49606b8c15a5688d4728f92e4a7325a061de07f5",
   "_shrinkwrap": null,
   "_spec": "cordova-plugin-file@6.0.1",
-  "_where": "C:\\Users\\cmialdea\\IonicWorkspace\\AplicacionesIonic\\PdfCreator",
+  "_where": "C:\\Users\\cmialdea\\IonicWorkspace\\AplicacionesIonic\\RepsolRGPD",
   "author": {
     "name": "Apache Software Foundation"
   },
