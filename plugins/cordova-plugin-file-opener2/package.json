@@ -10,7 +10,7 @@
         "spec": "latest",
         "type": "tag"
       },
-      "C:\\Users\\cmialdea\\IonicWorkspace\\AplicacionesIonic\\RepsolRGPD"
+      "C:\\Users\\cmialdea\\IonicWorkspace\\AplicacionesIonic\\PdfCreator"
     ]
   ],
   "_from": "cordova-plugin-file-opener2@latest",
@@ -45,7 +45,7 @@
   "_shasum": "ca3ae1225395b77ab1fe5b20accbfecc688e2493",
   "_shrinkwrap": null,
   "_spec": "cordova-plugin-file-opener2",
-  "_where": "C:\\Users\\cmialdea\\IonicWorkspace\\AplicacionesIonic\\RepsolRGPD",
+  "_where": "C:\\Users\\cmialdea\\IonicWorkspace\\AplicacionesIonic\\PdfCreator",
   "author": {
     "name": "pwlin05@gmail.com"
   },

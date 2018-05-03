@@ -6,6 +6,14 @@
   "BotonEs": "Español",
   "BotonEn": "Inglés",
   "TituloTab": "Inicio",
+
+  "TituloNavBarTuto":"Información",
+  "TituloTuto":"Aceptación RGPD",
+  "TextoTuto1":"Para su comodidad y seguridad, ",
+  "TextoTuto2":"Repsol",
+  "TextoTuto3":", pone a su disposición una nueva app para la aceptación de la ",
+  "TextoTuto4":"ley de protección de datos personales y privacidad",
+  "TextoTuto5":"Los datos personales recogidos serán tratados garantizándole la protección de éstos conforme a la normativa vigente.",
   
   "TituloNavBarForm":"Formulario",
   "TituloForm": "Datos Personales",
@@ -23,6 +31,7 @@
   "ValidacionApellido":"El apellido no es válido, compruebe que la primera letra es mayúscula y que no haya introducido números",
   "ValidacionIdentidad":"El documento identificativo no es válido, compruebe que lo ha escrito correctamente",
   "ValidacionEmail":"El email no es válido, compruebe que lo ha escrito correctamente",
+  "TextoInfoFormulario":"Rellene el formulario con sus datos personales.",
   
   "AlertTimeOutTitle":"Advertencia",
   "AlertTimeOutSubtitle":"Lo sentimos, su tiempo ha finalizado, puede comenzar de nuevo si lo desea.",

@@ -10,7 +10,7 @@
         "spec": "latest",
         "type": "tag"
       },
-      "C:\\Users\\cmialdea\\IonicWorkspace\\AplicacionesIonic\\RepsolRGPD"
+      "C:\\Users\\cmialdea\\IonicWorkspace\\AplicacionesIonic\\PdfCreator"
     ]
   ],
   "_from": "cordova-sqlite-storage@latest",
@@ -45,7 +45,7 @@
   "_shasum": "641f93714ee57839354eef910f567d4634ead33c",
   "_shrinkwrap": null,
   "_spec": "cordova-sqlite-storage",
-  "_where": "C:\\Users\\cmialdea\\IonicWorkspace\\AplicacionesIonic\\RepsolRGPD",
+  "_where": "C:\\Users\\cmialdea\\IonicWorkspace\\AplicacionesIonic\\PdfCreator",
   "author": {
     "name": "various"
   },

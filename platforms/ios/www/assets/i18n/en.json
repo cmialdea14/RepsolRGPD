@@ -7,6 +7,14 @@
   "BotonEn": "English",
   "TituloTab": "Home",
 
+  "TituloNavBarTuto":"Information",
+  "TituloTuto":"Acceptation RGPD",
+  "TextoTuto1":"For your comfort and safety, ",
+  "TextoTuto2":"Repsol",
+  "TextoTuto3":", make available a new app to accept the ",
+  "TextoTuto4":"personal data protection and privacy law",
+  "TextoTuto5":"...",  
+
   "TituloNavBarForm":"Form",
   "TituloForm": "Personal Data",
   "Nombre":"Name",
@@ -23,7 +31,7 @@
   "ValidacionApellido":"The surname is invalid, check that the first letter is capitalized and that you haven't entered numbers",
   "ValidacionIdentidad":"The identification document number is invalid, check that you have written it correctly",
   "ValidacionEmail":"The email is invalid, check that you have written it correctly",
-
+  "TextoInfoFormulario":"Fill in the form with your personal data.",
   
   "AlertTimeOutTitle":"Warning",
   "AlertTimeOutSubtitle":"Sorry, your time has expired, you can start again if you wish.",
